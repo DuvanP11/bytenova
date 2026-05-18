@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080c1a">
+<title>ByteNova · Automatización que le devuelve el tiempo a tu equipo</title>
+<meta name="description" content="Automatizo procesos manuales y detección de fraude para empresas. Diagnóstico gratuito de 30 minutos.">
+<style>
+  :root {
+    --bg:#080c1a; --panel:#141c3c; --panel2:#0f1633; --text:#eef1ff;
+    --dim:#9aa3cc; --line:#26305a;
+    --cyan:#5af2ff; --violet:#9b7bff; --green:#4ade80; --amber:#fbbf24; --pink:#fb7ec0;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.5;
+    background:
+      radial-gradient(700px 420px at 88% -4%, rgba(155,123,255,.22), transparent 62%),
+      radial-gradient(620px 400px at -8% 3%, rgba(90,242,255,.14), transparent 58%),
+      var(--bg); }
+  .wrap { max-width:920px; margin:0 auto; padding:0 20px; }
+
+  /* Sticky bar */
+  .bar { position:sticky; top:0; z-index:30; backdrop-filter:blur(10px);
+    background:rgba(8,12,26,.82); border-bottom:1px solid var(--line); }
+  .bar .wrap { display:flex; justify-content:space-between; align-items:center;
+    padding:13px 20px; }
+  .logo { font-size:20px; font-weight:900; letter-spacing:2px;
+    background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));
+    -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .btn { display:inline-block; font-weight:800; cursor:pointer; border:none;
+    text-decoration:none; border-radius:11px; transition:transform .12s; }
+  .btn:active { transform:scale(.97); }
+  .btn-main { background:linear-gradient(90deg,var(--cyan),var(--violet));
+    color:var(--bg); padding:11px 20px; font-size:14px; }
+  .btn-ghost { background:var(--panel2); color:var(--cyan);
+    border:1px solid var(--cyan); padding:11px 20px; font-size:14px; }
+  .bar .btn-main { padding:9px 16px; font-size:13px; }
+
+  section { padding:46px 0; }
+  .eyebrow { font-size:11px; letter-spacing:2.5px; font-weight:800; color:var(--violet);
+    text-transform:uppercase; margin-bottom:7px; }
+  h2.t { font-size:26px; font-weight:800; margin-bottom:20px; letter-spacing:-.3px; }
+
+  /* Hero */
+  .hero { text-align:center; padding:54px 0 40px; }
+  .hello { display:inline-flex; align-items:center; gap:9px; font-size:14px;
+    color:var(--cyan); font-weight:700; margin-bottom:18px; }
+  .hello .av { width:32px; height:32px; border-radius:50%; font-size:13px;
+    font-weight:900; color:var(--bg); display:flex; align-items:center;
+    justify-content:center; background:linear-gradient(135deg,var(--cyan),var(--violet)); }
+  .hero h1 { font-size:44px; line-height:1.14; font-weight:900; letter-spacing:-1px; }
+  .hero h1 .hl { background:linear-gradient(90deg,var(--cyan),var(--pink));
+    -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero .lead { font-size:16px; color:var(--dim); margin:18px auto 26px; max-width:620px; }
+  .hero .cgroup { display:flex; gap:11px; justify-content:center; flex-wrap:wrap; }
+  .btn-lg { padding:15px 28px; font-size:15px; }
+
+  /* Billboard */
+  .billboard { padding:30px 32px; border-radius:20px; text-align:center;
+    background:linear-gradient(135deg, rgba(155,123,255,.22), rgba(90,242,255,.1));
+    border:1px solid var(--line); }
+  .billboard .q { font-size:23px; font-weight:800; line-height:1.4; }
+  .billboard .q span { color:var(--amber); }
+
+  /* Pains */
+  .pains { display:grid; grid-template-columns:1fr 1fr; gap:11px; }
+  .pain { background:var(--panel2); border:1px solid var(--line); border-radius:12px;
+    padding:14px 15px 14px 42px; font-size:14px; position:relative; }
+  .pain::before { content:''; position:absolute; left:15px; top:15px; width:16px;
+    height:16px; border-radius:5px; border:2px solid var(--amber);
+    background:rgba(251,191,36,.18); }
+  .micro { margin-top:16px; font-size:14px; color:var(--cyan); line-height:1.6;
+    background:rgba(90,242,255,.08); border-radius:11px; padding:14px 16px; }
+
+  /* Stats */
+  .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .stat { border-radius:16px; padding:24px 16px; text-align:center;
+    background:linear-gradient(180deg,var(--panel),var(--panel2));
+    border:1px solid var(--line); }
+  .stat .sv { font-size:32px; font-weight:900; line-height:1;
+    background:linear-gradient(90deg,var(--cyan),var(--green));
+    -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .stat .sl { font-size:12px; color:var(--dim); margin-top:9px; }
+
+  /* Services */
+  .svcs { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
+  .svc { background:var(--panel2); border:1px solid var(--line); border-radius:15px;
+    padding:18px; }
+  .svc .ic { width:44px; height:44px; border-radius:12px; font-size:22px;
+    display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
+  .svc.c1 .ic { background:rgba(90,242,255,.16); }
+  .svc.c2 .ic { background:rgba(251,126,192,.16); }
+  .svc.c3 .ic { background:rgba(74,222,128,.16); }
+  .svc.c4 .ic { background:rgba(155,123,255,.16); }
+  .svc .st { font-size:16px; font-weight:800; }
+  .svc .sd { font-size:13px; color:var(--dim); margin-top:6px; }
+
+  /* Steps */
+  .steps { display:flex; flex-direction:column; }
+  .step { display:flex; gap:16px; }
+  .step .rail { display:flex; flex-direction:column; align-items:center; }
+  .step .sn { width:36px; height:36px; border-radius:50%; flex-shrink:0;
+    background:linear-gradient(135deg,var(--cyan),var(--violet)); color:var(--bg);
+    font-weight:900; display:flex; align-items:center; justify-content:center; font-size:16px; }
+  .step .ln { width:2px; flex:1; background:var(--line); margin:4px 0; }
+  .step:last-child .ln { display:none; }
+  .step .sc { padding-bottom:20px; }
+  .step .sc b { font-size:15px; }
+  .step .sc p { font-size:13px; color:var(--dim); margin-top:3px; }
+
+  /* Who */
+  .who { display:flex; gap:20px; align-items:flex-start;
+    background:linear-gradient(135deg,var(--panel),var(--panel2));
+    border:1px solid var(--line); border-radius:18px; padding:24px; }
+  .who .face { width:66px; height:66px; border-radius:17px; flex-shrink:0;
+    font-size:24px; font-weight:900; color:var(--bg);
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,var(--cyan),var(--pink)); }
+  .who .wt { font-size:14px; color:var(--dim); }
+  .who .wt b { color:var(--text); }
+
+  /* Final CTA */
+  .final { text-align:center; padding:50px 32px; border-radius:22px;
+    background:linear-gradient(180deg, rgba(74,222,128,.14), rgba(90,242,255,.06));
+    border:1px solid var(--line); }
+  .final h2 { font-size:30px; font-weight:900; }
+  .final p { font-size:15px; color:var(--dim); margin:13px auto 22px; max-width:560px; }
+  .contact { margin-top:22px; font-size:13px; color:var(--dim); }
+  .contact b { color:var(--text); }
+
+  footer { text-align:center; font-size:11px; color:var(--dim); letter-spacing:2px;
+    padding:30px 20px; border-top:1px solid var(--line); margin-top:30px; }
+
+  /* Popup */
+  .popbg { position:fixed; inset:0; background:rgba(4,6,14,.82); z-index:50;
+    display:none; align-items:center; justify-content:center; padding:18px;
+    backdrop-filter:blur(4px); }
+  .popbg.show { display:flex; animation:fade .25s ease; }
+  @keyframes fade { from{opacity:0} to{opacity:1} }
+  .pop { background:linear-gradient(180deg,var(--panel),var(--panel2));
+    border:1px solid var(--line); border-radius:20px; max-width:430px; width:100%;
+    padding:26px 24px; position:relative;
+    box-shadow:0 30px 80px rgba(0,0,0,.6); animation:pop .3s ease; }
+  @keyframes pop { from{transform:translateY(20px) scale(.96);opacity:0} to{transform:none;opacity:1} }
+  .pop .x { position:absolute; right:14px; top:12px; background:none; border:none;
+    color:var(--dim); font-size:22px; cursor:pointer; }
+  .pop .pk { font-size:11px; letter-spacing:2px; font-weight:800; color:var(--cyan);
+    text-transform:uppercase; }
+  .pop h3 { font-size:21px; font-weight:900; margin:7px 0 6px; line-height:1.25; }
+  .pop .psub { font-size:13px; color:var(--dim); margin-bottom:16px; }
+  .pop form { display:flex; flex-direction:column; gap:9px; }
+  .pop input,.pop textarea { background:var(--bg); color:var(--text);
+    border:1px solid var(--line); border-radius:10px; padding:11px; font-size:14px;
+    font-family:inherit; width:100%; }
+  .pop textarea { min-height:62px; resize:vertical; }
+  .pop button[type=submit] { background:linear-gradient(90deg,var(--cyan),var(--violet));
+    color:var(--bg); border:none; border-radius:10px; padding:13px; font-size:14px;
+    font-weight:900; cursor:pointer; margin-top:3px; }
+  .pop .pfine { font-size:11px; color:var(--dim); text-align:center; margin-top:9px; }
+  .pop .hp { position:absolute; left:-9999px; }
+  .pop .done { text-align:center; padding:14px 0; }
+  .pop .done .big { font-size:40px; }
+  .pop .done h3 { font-size:19px; margin-top:8px; }
+  .pop .done p { font-size:13px; color:var(--dim); margin-top:6px; }
+  .pop .err { color:var(--pink); font-size:12px; text-align:center; }
+
+  @media (max-width:640px) {
+    .hero h1 { font-size:32px; }
+    .pains,.stats,.svcs { grid-template-columns:1fr; }
+    .billboard .q { font-size:19px; }
+    h2.t { font-size:22px; }
+    .who { flex-direction:column; }
+    .bar .logo { font-size:17px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <span class="logo">BYTENOVA</span>
+    <a class="btn btn-main" href="https://calendly.com/bytenova38/30min" target="_blank" rel="noopener">Agendar diagnóstico</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="hello"><span class="av">D</span> Hola, soy Duvan — esto es lo que hago.</div>
+    <h1>Le devuelvo a tu equipo el <span class="hl">tiempo</span> que pierde en lo repetitivo.</h1>
+    <div class="lead">Convierto procesos manuales y tareas que se hacen "a mano" en
+      sistemas que trabajan solos. Menos horas en lo aburrido, más foco en lo que de
+      verdad mueve tu negocio.</div>
+    <div class="cgroup">
+      <a class="btn btn-main btn-lg" href="https://calendly.com/bytenova38/30min" target="_blank" rel="noopener">Diagnóstico gratuito de 30 min →</a>
+      <button class="btn btn-ghost btn-lg" id="open-pop">Déjame tu correo</button>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="billboard">
+      <div class="q">Tu equipo no necesita trabajar más horas.<br>
+        Necesita dejar de hacer <span>lo que una máquina haría en segundos.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">El punto de partida</div>
+    <h2 class="t">¿Te pasa alguno de estos?</h2>
+    <div class="pains">
+      <div class="pain">Tu equipo revisa documentos uno por uno, a mano</div>
+      <div class="pain">Concilian datos en hojas de cálculo cada semana</div>
+      <div class="pain">Los reportes se arman copiando y pegando</div>
+      <div class="pain">El fraude se descubre tarde, cuando ya pasó</div>
+      <div class="pain">Hay un proceso que solo una persona sabe hacer</div>
+      <div class="pain">"Siempre lo hemos hecho así" — y nadie lo ha cambiado</div>
+    </div>
+    <div class="micro">Si te identificaste aunque sea con uno, hay tiempo —y dinero—
+      yéndose cada semana. Eso es justo lo que vengo a recuperar contigo.</div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="stats">
+      <div class="stat"><div class="sv">87–95%</div>
+        <div class="sl">menos incidentes de fraude en un sistema en producción</div></div>
+      <div class="stat"><div class="sv">160h+</div>
+        <div class="sl">de trabajo manual eliminadas al mes con automatización</div></div>
+      <div class="stat"><div class="sv">48h→10min</div>
+        <div class="sl">en tiempo de detección de operaciones sospechosas</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Lo que hago</div>
+    <h2 class="t">Cuatro formas de quitarte trabajo de encima</h2>
+    <div class="svcs">
+      <div class="svc c1"><div class="ic">⚙️</div><div class="st">Automatización de procesos</div>
+        <div class="sd">Validaciones, conciliaciones, reportes y pipelines. Lo repetitivo deja de depender de personas.</div></div>
+      <div class="svc c2"><div class="ic">🛡️</div><div class="st">Detección de fraude</div>
+        <div class="sd">Alertas en tiempo real, reconocimiento facial, patrones y redes. Detectar antes, no después.</div></div>
+      <div class="svc c3"><div class="ic">📊</div><div class="st">Dashboards ejecutivos</div>
+        <div class="sd">Que el dato deje de vivir en hojas sueltas y se vuelva una decisión clara.</div></div>
+      <div class="svc c4"><div class="ic">🧩</div><div class="st">Microaplicaciones a medida</div>
+        <div class="sd">Herramientas internas en Python, Flask o Streamlit, hechas para tu proceso exacto.</div></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="eyebrow">Sin riesgo</div>
+    <h2 class="t">Cómo trabajamos juntos</h2>
+    <div class="steps">
+      <div class="step"><div class="rail"><div class="sn">1</div><div class="ln"></div></div>
+        <div class="sc"><b>Diagnóstico — gratis, 30 minutos.</b>
+        <p>Mapeamos un proceso tuyo. Si no se puede automatizar, te lo digo de una. Sin costo, sin compromiso.</p></div></div>
+      <div class="step"><div class="rail"><div class="sn">2</div><div class="ln"></div></div>
+        <div class="sc"><b>Propuesta de 1 página.</b>
+        <p>Alcance, tiempo y costo claros. Decides con calma, a tu ritmo.</p></div></div>
+      <div class="step"><div class="rail"><div class="sn">3</div><div class="ln"></div></div>
+        <div class="sc"><b>Desarrollo en 2 semanas.</b>
+        <p>Entrego el automatizador funcionando, documentado y en producción.</p></div></div>
+      <div class="step"><div class="rail"><div class="sn">4</div></div>
+        <div class="sc"><b>30 días de soporte.</b>
+        <p>Ajustes incluidos. Que quede funcionando de verdad, no solo en el papel.</p></div></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="eyebrow">Quién está detrás</div>
+    <h2 class="t">Una persona, no una agencia</h2>
+    <div class="who">
+      <div class="face">D</div>
+      <div class="wt">Soy <b>Duvan</b>, analista de datos y detección de fraude. Llevo
+        <b>más de 4 años</b> resolviendo estos problemas dentro de una empresa real de
+        movilidad y logística: sistemas de fraude con IA, automatización de procesos y
+        dashboards que la operación usa a diario.<br><br>
+        Cuando trabajas con ByteNova hablas directo conmigo — quien diagnostica es quien
+        desarrolla. Nada se subcontrata, nada se diluye.</div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="final">
+      <h2>El primer paso es cómodo</h2>
+      <p>No tienes que decidir nada hoy. Agenda un diagnóstico de 30 minutos, gratis:
+        revisamos un proceso tuyo y te digo con honestidad si vale la pena automatizarlo.</p>
+      <div class="cgroup" style="display:flex;gap:11px;justify-content:center;flex-wrap:wrap;">
+        <a class="btn btn-main btn-lg" href="https://calendly.com/bytenova38/30min" target="_blank" rel="noopener">Agendar diagnóstico gratuito →</a>
+        <button class="btn btn-ghost btn-lg" id="open-pop2">Prefiero dejar mi correo</button>
+      </div>
+      <div class="contact">📅 <b>calendly.com/bytenova38/30min</b> &nbsp;·&nbsp; ✉️ <b>bytenova38@gmail.com</b></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>BYTENOVA · AUTOMATIZACIÓN, DATOS Y DETECCIÓN DE FRAUDE</footer>
+
+<!-- Lead-capture popup -->
+<div class="popbg" id="popbg">
+  <div class="pop">
+    <button class="x" id="pop-x" aria-label="Cerrar">×</button>
+    <div id="pop-form-wrap">
+      <div class="pk">Diagnóstico gratuito</div>
+      <h3>¿Un proceso te quita horas cada semana?</h3>
+      <div class="psub">Déjame tus datos y te contacto para revisarlo — 30 minutos,
+        sin costo y sin compromiso de contratar nada.</div>
+      <form id="leadform">
+        <input type="hidden" name="access_key" value="e7075c8b-8c8d-4919-9d07-adfac1789871">
+        <input type="hidden" name="subject" value="Nuevo lead — Landing ByteNova">
+        <input type="hidden" name="from_name" value="Landing ByteNova">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+        <input name="nombre" placeholder="Tu nombre" required>
+        <input name="correo" type="email" placeholder="Tu correo" required>
+        <input name="empresa" placeholder="Empresa (opcional)">
+        <textarea name="proceso" placeholder="¿Qué proceso manual te quita más tiempo? (opcional)"></textarea>
+        <button type="submit" id="lead-submit">Quiero mi diagnóstico gratis</button>
+        <div class="err" id="lead-err"></div>
+      </form>
+      <div class="pfine">Tus datos solo se usan para contactarte. Cero spam.</div>
+    </div>
+    <div class="done" id="pop-done" style="display:none;">
+      <div class="big">✅</div>
+      <h3>¡Listo! Gracias por escribir.</h3>
+      <p>Te contacto muy pronto a tu correo para coordinar el diagnóstico.
+        Si quieres, también puedes agendar directo:</p>
+      <a class="btn btn-main btn-lg" href="https://calendly.com/bytenova38/30min" target="_blank" rel="noopener" style="margin-top:12px;">Agendar ahora →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const popbg = document.getElementById('popbg');
+  let popShown = false;
+
+  function openPop(){ popbg.classList.add('show'); popShown = true; }
+  function closePop(){ popbg.classList.remove('show'); try{localStorage.setItem('bn_pop','1');}catch(e){} }
+
+  document.getElementById('open-pop').onclick  = openPop;
+  document.getElementById('open-pop2').onclick = openPop;
+  document.getElementById('pop-x').onclick = closePop;
+  popbg.onclick = e => { if(e.target===popbg) closePop(); };
+
+  // Auto-trigger: a los 28s o al 65% de scroll, una sola vez por visitante.
+  const seen = (()=>{ try{return localStorage.getItem('bn_pop')==='1';}catch(e){return false;} })();
+  if(!seen){
+    setTimeout(()=>{ if(!popShown) openPop(); }, 28000);
+    window.addEventListener('scroll', ()=>{
+      const p = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+      if(p > 0.65 && !popShown) openPop();
+    }, {passive:true});
+  }
+
+  // Envío del formulario a Web3Forms (sin recargar la página).
+  const form = document.getElementById('leadform');
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const btn = document.getElementById('lead-submit');
+    const err = document.getElementById('lead-err');
+    err.textContent = '';
+    btn.textContent = 'Enviando…'; btn.disabled = true;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method:'POST', body:new FormData(form)
+      });
+      const data = await res.json();
+      if(data.success){
+        document.getElementById('pop-form-wrap').style.display = 'none';
+        document.getElementById('pop-done').style.display = 'block';
+        try{localStorage.setItem('bn_pop','1');}catch(e){}
+      } else {
+        throw new Error(data.message || 'No se pudo enviar');
+      }
+    } catch(ex){
+      err.textContent = 'Hubo un problema al enviar. Escríbeme directo a bytenova38@gmail.com';
+      btn.textContent = 'Quiero mi diagnóstico gratis'; btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
