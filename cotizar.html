@@ -215,13 +215,13 @@ footer{text-align:center;font-size:11px;color:var(--dim);letter-spacing:2px;
       <div class="fld">
         <label>¿Qué servicios te interesan? <span class="req">*</span></label>
         <div class="chips" id="chips-svc">
-          <label class="chip"><input type="checkbox" value="🌐 Website"><span>🌐 Website</span></label>
-          <label class="chip"><input type="checkbox" value="📱 App móvil (APK)"><span>📱 App móvil</span></label>
-          <label class="chip"><input type="checkbox" value="👥 CRM"><span>👥 CRM</span></label>
-          <label class="chip"><input type="checkbox" value="⚙️ Automatización de procesos"><span>⚙️ Automatización</span></label>
-          <label class="chip"><input type="checkbox" value="📊 Tablero de control"><span>📊 Tablero / Dashboard</span></label>
-          <label class="chip"><input type="checkbox" value="🛡️ Monitoreo / detección de fraude"><span>🛡️ Monitoreo / Fraude</span></label>
-          <label class="chip"><input type="checkbox" value="❓ Aún no estoy seguro"><span>❓ No estoy seguro</span></label>
+          <label class="chip"><input type="checkbox" value="Website"><span>🌐 Website</span></label>
+          <label class="chip"><input type="checkbox" value="App móvil (APK)"><span>📱 App móvil</span></label>
+          <label class="chip"><input type="checkbox" value="CRM"><span>👥 CRM</span></label>
+          <label class="chip"><input type="checkbox" value="Automatización de procesos"><span>⚙️ Automatización</span></label>
+          <label class="chip"><input type="checkbox" value="Tablero de control"><span>📊 Tablero / Dashboard</span></label>
+          <label class="chip"><input type="checkbox" value="Monitoreo / detección de fraude"><span>🛡️ Monitoreo / Fraude</span></label>
+          <label class="chip"><input type="checkbox" value="Aún no estoy seguro"><span>❓ No estoy seguro</span></label>
         </div>
       </div>
       <div class="fld">
@@ -375,28 +375,33 @@ function validate(d){
   return true;
 }
 
-// ── Mensaje formateado para WhatsApp (con *negrita* y _cursiva_) ──
+// ── Mensaje formateado para WhatsApp ──
+// Sin emojis modernos (algunos clientes los muestran como ◆). Solo:
+//   * para negrita, _ para cursiva, ► y ─ como símbolos tipográficos.
 function buildWaMessage(d){
+  const line = "─────────────";
   const lines = [
-    "🚀 *NUEVA COTIZACIÓN · ByteNova*",
+    "*NUEVA COTIZACIÓN — ByteNova*",
+    line,
     "",
-    "*👤 Contacto*",
+    "*► CONTACTO*",
     `• ${d.name}` + (d.role ? ` — ${d.role}` : ""),
-    `• ${d.company}` + (d.sector ? ` (${d.sector})` : ""),
-    `• 📱 ${d.phone}`,
-    d.email ? `• ✉️ ${d.email}` : "",
+    `• Empresa: ${d.company}` + (d.sector ? ` (${d.sector})` : ""),
+    `• Tel: ${d.phone}`,
+    d.email ? `• Mail: ${d.email}` : "",
     "",
-    "*🎯 Proyecto*",
+    "*► PROYECTO*",
     `• Servicios: ${d.services.join(", ")}`,
     `• Plazo: ${d.when}`,
     d.budget ? `• Presupuesto: ${d.budget}` : "",
     "",
-    "*📝 Descripción*",
+    "*► DESCRIPCIÓN*",
     d.problem,
     "",
+    line,
   ];
   if(d.source) lines.push(`_Fuente: ${d.source}_`);
-  lines.push("_Enviado desde el cotizador web de ByteNova_");
+  lines.push("_Cotizador web de ByteNova_");
   return lines.filter(l => l !== "").join("\n");
 }
 
