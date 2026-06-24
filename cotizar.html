@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080c1a">
+<title>Solicitar cotización · ByteNova</title>
+<link rel="icon" type="image/png" href="/bytenova/favicon.png">
+<meta name="description" content="Cuéntanos tu proyecto. Te respondemos por WhatsApp en menos de 12 horas con propuesta de 1 página.">
+<style>
+:root{
+  --bg:#080c1a; --panel:#141c3c; --panel2:#0f1633; --text:#eef1ff;
+  --dim:#9aa3cc; --line:#26305a;
+  --cyan:#5af2ff; --violet:#9b7bff; --green:#4ade80; --amber:#fbbf24; --pink:#fb7ec0;
+  --red:#f87171;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.55;
+  background:
+    radial-gradient(700px 420px at 88% -4%,rgba(155,123,255,.22),transparent 62%),
+    radial-gradient(620px 400px at -8% 3%,rgba(90,242,255,.14),transparent 58%),
+    var(--bg);min-height:100vh}
+a{color:var(--cyan);text-decoration:none}
+
+/* Top bar */
+.bar{position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);
+  background:rgba(8,12,26,.82);border-bottom:1px solid var(--line);padding:13px 0}
+.bar .inner{max-width:920px;margin:0 auto;padding:0 20px;display:flex;
+  justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:900;letter-spacing:2px;
+  background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.bar .back{color:var(--dim);font-size:13px;font-weight:700}
+.bar .back:hover{color:var(--cyan)}
+
+.wrap{max-width:760px;margin:0 auto;padding:40px 20px 80px}
+
+/* Hero */
+.head{text-align:center;margin-bottom:36px}
+.kick{font-size:11px;letter-spacing:5px;color:var(--cyan);font-weight:800;
+  margin-bottom:14px;text-transform:uppercase}
+h1{font-size:36px;font-weight:900;letter-spacing:-.6px;line-height:1.15;margin-bottom:14px}
+h1 .hl{background:linear-gradient(90deg,var(--cyan),var(--pink));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:16px;color:var(--dim);max-width:560px;margin:0 auto}
+
+/* Promesa box */
+.promise{background:linear-gradient(135deg,rgba(155,123,255,.18),rgba(90,242,255,.08));
+  border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:30px;
+  display:flex;gap:14px;align-items:flex-start;font-size:14px;color:var(--text)}
+.promise .ic{font-size:24px;flex-shrink:0}
+.promise b{color:var(--green)}
+
+/* Form */
+form{background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:26px}
+.section{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.section:last-of-type{border-bottom:none;padding-bottom:0;margin-bottom:0}
+.section h2{font-size:13px;letter-spacing:3px;color:var(--violet);font-weight:800;
+  margin-bottom:16px;text-transform:uppercase}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fld{margin-bottom:14px}
+.fld label{display:block;font-size:12px;color:var(--dim);font-weight:700;
+  margin-bottom:6px;letter-spacing:.3px}
+.fld label .req{color:var(--red);margin-left:2px}
+.fld label .opt{color:var(--dim);font-weight:400;font-style:italic;margin-left:6px}
+input[type="text"],input[type="email"],input[type="tel"],input[type="number"],
+select,textarea{
+  width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;
+  padding:11px 14px;font-size:14px;color:var(--text);font-family:inherit;
+  transition:border-color .15s;
+}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan)}
+textarea{resize:vertical;min-height:90px;line-height:1.5}
+select{cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%239aa3cc' d='M6 8L0 0h12z'/></svg>");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+
+/* Checkboxes pretty */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;cursor:pointer}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:9px 14px;background:var(--bg);
+  border:1px solid var(--line);border-radius:999px;font-size:13px;
+  color:var(--text);transition:all .12s;font-weight:600}
+.chip input:checked + span{background:linear-gradient(90deg,var(--cyan),var(--violet));
+  color:var(--bg);border-color:transparent;font-weight:800}
+.chip:hover span{border-color:var(--cyan)}
+
+/* Submit area */
+.submit{margin-top:26px;text-align:center}
+.btn{display:inline-block;font-weight:800;cursor:pointer;border:none;
+  text-decoration:none;border-radius:12px;transition:transform .12s;font-family:inherit}
+.btn:active{transform:scale(.98)}
+.btn-main{background:linear-gradient(90deg,var(--green),var(--cyan));
+  color:var(--bg);padding:16px 32px;font-size:15px;display:inline-flex;
+  align-items:center;gap:10px}
+.btn-main:hover{box-shadow:0 8px 22px rgba(74,222,128,.3)}
+.btn-mail{background:var(--panel);color:var(--cyan);border:1px solid var(--cyan);
+  padding:12px 22px;font-size:13px;margin-left:10px}
+.disclaimer{margin-top:18px;font-size:12px;color:var(--dim);font-style:italic}
+.err-msg{color:var(--red);font-size:13px;font-weight:600;margin-top:14px;
+  display:none}
+.err-msg.show{display:block}
+
+/* Sidebar info */
+.info{margin-top:30px;background:var(--panel);border:1px solid var(--line);
+  border-radius:14px;padding:20px;font-size:13px;color:var(--dim);line-height:1.7}
+.info b{color:var(--text)}
+.info .li{padding:6px 0 6px 24px;position:relative}
+.info .li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:900}
+
+footer{text-align:center;font-size:11px;color:var(--dim);letter-spacing:2px;
+  padding:30px 20px;border-top:1px solid var(--line);margin-top:50px}
+
+@media(max-width:560px){
+  .row{grid-template-columns:1fr}
+  h1{font-size:28px}
+  form{padding:20px}
+  .btn-mail{margin-left:0;margin-top:10px;display:block;width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="inner">
+    <a href="/bytenova/" class="logo">BYTENOVA</a>
+    <a class="back" href="/bytenova/">← Volver al inicio</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="head">
+    <div class="kick">Solicitar cotización</div>
+    <h1>Cuéntanos tu proyecto y te <span class="hl">cotizamos en 12 horas</span></h1>
+    <p class="lead">Respondemos por WhatsApp con una propuesta de 1 página: alcance, tiempo y costo claros. Si no se puede automatizar lo que necesitas, te lo decimos de una.</p>
+  </div>
+
+  <div class="promise">
+    <div class="ic">⚡</div>
+    <div>
+      <b>Sin compromiso, sin costo.</b> Tu cotización llega directo a nuestro WhatsApp Business. La respondemos en menos de 12 horas hábiles. Si no encaja con lo que hacemos, te lo decimos al toque y no te hacemos perder tiempo.
+    </div>
+  </div>
+
+  <form id="quote-form" onsubmit="return submitQuote(event)">
+
+    <div class="section">
+      <h2>👋 Sobre ti</h2>
+      <div class="row">
+        <div class="fld">
+          <label>Tu nombre <span class="req">*</span></label>
+          <input type="text" id="f_name" required placeholder="ej. Ana López">
+        </div>
+        <div class="fld">
+          <label>Cargo <span class="opt">(opcional)</span></label>
+          <input type="text" id="f_role" placeholder="ej. Gerente de Operaciones">
+        </div>
+      </div>
+      <div class="fld">
+        <label>Empresa <span class="req">*</span></label>
+        <input type="text" id="f_company" required placeholder="ej. Distribuidora ABC S.A.S.">
+      </div>
+      <div class="row">
+        <div class="fld">
+          <label>WhatsApp <span class="req">*</span></label>
+          <input type="tel" id="f_phone" required placeholder="ej. +57 300 123 4567">
+        </div>
+        <div class="fld">
+          <label>Correo <span class="opt">(opcional)</span></label>
+          <input type="email" id="f_email" placeholder="ej. ana@empresa.co">
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🎯 Qué necesitas</h2>
+      <div class="fld">
+        <label>¿Qué servicios te interesan? <span class="req">*</span></label>
+        <div class="chips" id="chips-svc">
+          <label class="chip"><input type="checkbox" value="🌐 Website"><span>🌐 Website</span></label>
+          <label class="chip"><input type="checkbox" value="📱 App móvil (APK)"><span>📱 App móvil</span></label>
+          <label class="chip"><input type="checkbox" value="👥 CRM"><span>👥 CRM</span></label>
+          <label class="chip"><input type="checkbox" value="⚙️ Automatización de procesos"><span>⚙️ Automatización</span></label>
+          <label class="chip"><input type="checkbox" value="📊 Tablero de control"><span>📊 Tablero / Dashboard</span></label>
+          <label class="chip"><input type="checkbox" value="🛡️ Monitoreo / detección de fraude"><span>🛡️ Monitoreo / Fraude</span></label>
+          <label class="chip"><input type="checkbox" value="❓ Aún no estoy seguro"><span>❓ No estoy seguro</span></label>
+        </div>
+      </div>
+      <div class="fld">
+        <label>Sector de tu empresa <span class="opt">(ayuda a calibrar mejor)</span></label>
+        <select id="f_sector">
+          <option value="">— Elegir sector —</option>
+          <option>Comercio / retail</option>
+          <option>Logística / transporte</option>
+          <option>Ferretería / distribuidora</option>
+          <option>Construcción</option>
+          <option>Salud / clínica</option>
+          <option>Cooperativa / financiera</option>
+          <option>Fintech</option>
+          <option>Servicios profesionales</option>
+          <option>Educación</option>
+          <option>Restaurantes / hotelería</option>
+          <option>Manufactura / industrial</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="fld">
+        <label>Describe brevemente tu proyecto o el problema que quieres resolver <span class="req">*</span></label>
+        <textarea id="f_problem" required placeholder="ej. Cotizar hoy nos toma 2-3 horas. Tenemos 4 vendedores que tardan media jornada en armar una cotización de 20 ítems revisando precios en Siigo, y los clientes se van con la competencia que cotiza en minutos…" rows="4"></textarea>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>💰 Plazo y presupuesto</h2>
+      <div class="row">
+        <div class="fld">
+          <label>¿Cuándo lo necesitas? <span class="req">*</span></label>
+          <select id="f_when" required>
+            <option value="">— Elegir —</option>
+            <option>Lo antes posible (próximas 2 semanas)</option>
+            <option>En 1 mes</option>
+            <option>En 1-3 meses</option>
+            <option>Más adelante / flexible</option>
+            <option>Aún no lo sé</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label>Rango de presupuesto <span class="opt">(estimado)</span></label>
+          <select id="f_budget">
+            <option value="">— Elegir —</option>
+            <option>Hasta $5 MM COP</option>
+            <option>$5 MM – $10 MM COP</option>
+            <option>$10 MM – $20 MM COP</option>
+            <option>$20 MM – $50 MM COP</option>
+            <option>Más de $50 MM COP</option>
+            <option>No tengo claridad</option>
+          </select>
+        </div>
+      </div>
+      <div class="fld">
+        <label>¿Cómo nos conociste? <span class="opt">(opcional)</span></label>
+        <select id="f_source">
+          <option value="">— Elegir —</option>
+          <option>Búsqueda en Google</option>
+          <option>Recomendación de un amigo o colega</option>
+          <option>LinkedIn</option>
+          <option>Instagram / Facebook</option>
+          <option>WhatsApp</option>
+          <option>Evento o feria</option>
+          <option>Otro</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="err-msg" id="err"></div>
+
+    <div class="submit">
+      <button type="submit" class="btn btn-main">
+        <span>📲</span>
+        <span>Enviar por WhatsApp</span>
+      </button>
+      <button type="button" class="btn btn-mail" onclick="sendByEmail()">
+        📧 Prefiero enviar por correo
+      </button>
+      <div class="disclaimer">Al enviar abriremos WhatsApp con tu mensaje listo. Tú lo revisas y le das enviar.</div>
+    </div>
+  </form>
+
+  <div class="info">
+    <b>¿Qué pasa después?</b>
+    <div class="li">Te respondemos por WhatsApp en menos de 12 horas hábiles.</div>
+    <div class="li">Si hay encaje, agendamos un diagnóstico de 30 minutos (gratis).</div>
+    <div class="li">Después del diagnóstico te mandamos una propuesta de 1 página con alcance, tiempo y costo claros.</div>
+    <div class="li">Decides con calma. Sin presión, sin compromiso.</div>
+  </div>
+</div>
+
+<footer>BYTENOVA · AUTOMATIZACIÓN, DATOS Y DETECCIÓN DE FRAUDE</footer>
+
+<script>
+const WA = "573224065731";  // +57 322 406 5731 (formato wa.me sin '+')
+const MAIL = "bytenova38@gmail.com";
+
+function getFormData(){
+  const get = id => (document.getElementById(id).value || "").trim();
+  const services = Array.from(
+    document.querySelectorAll('#chips-svc input:checked')
+  ).map(i => i.value);
+
+  return {
+    name:    get("f_name"),
+    role:    get("f_role"),
+    company: get("f_company"),
+    phone:   get("f_phone"),
+    email:   get("f_email"),
+    services,
+    sector:  get("f_sector"),
+    problem: get("f_problem"),
+    when:    get("f_when"),
+    budget:  get("f_budget"),
+    source:  get("f_source"),
+  };
+}
+
+function validate(d){
+  const errs = [];
+  if(!d.name)    errs.push("tu nombre");
+  if(!d.company) errs.push("la empresa");
+  if(!d.phone)   errs.push("tu WhatsApp");
+  if(!d.services.length) errs.push("al menos un servicio");
+  if(!d.problem) errs.push("la descripción de tu proyecto");
+  if(!d.when)    errs.push("cuándo lo necesitas");
+  if(errs.length){
+    const el = document.getElementById("err");
+    el.textContent = "Falta: " + errs.join(", ") + ".";
+    el.classList.add("show");
+    el.scrollIntoView({behavior:"smooth", block:"center"});
+    return false;
+  }
+  document.getElementById("err").classList.remove("show");
+  return true;
+}
+
+function buildMessage(d){
+  const lines = [
+    "👋 *Solicitud de cotización · ByteNova*",
+    "",
+    "🙋 *Sobre mí*",
+    `• Nombre: ${d.name}` + (d.role ? ` (${d.role})` : ""),
+    `• Empresa: ${d.company}` + (d.sector ? ` · ${d.sector}` : ""),
+    `• WhatsApp: ${d.phone}`,
+    d.email ? `• Correo: ${d.email}` : "",
+    "",
+    "🎯 *Lo que necesito*",
+    `• Servicios: ${d.services.join(", ")}`,
+    `• Plazo: ${d.when}`,
+    d.budget ? `• Presupuesto: ${d.budget}` : "",
+    "",
+    "📋 *Descripción del proyecto*",
+    d.problem,
+    "",
+  ];
+  if(d.source) lines.push(`🔗 Los conocí por: ${d.source}`);
+  lines.push("", "_Enviado desde el cotizador del sitio web_");
+  return lines.filter(l => l !== "").join("\n");
+}
+
+function submitQuote(ev){
+  ev.preventDefault();
+  const d = getFormData();
+  if(!validate(d)) return false;
+
+  const msg = buildMessage(d);
+  const url = `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank", "noopener");
+  return false;
+}
+
+function sendByEmail(){
+  const d = getFormData();
+  if(!validate(d)) return;
+
+  const msg = buildMessage(d).replace(/\*/g, "").replace(/_/g, "");
+  const subject = `Cotización · ${d.company} · ${d.services.join(", ")}`;
+  const url = `mailto:${MAIL}?subject=${encodeURIComponent(subject)}` +
+              `&body=${encodeURIComponent(msg)}`;
+  window.location.href = url;
+}
+</script>
+
+</body>
+</html>

@@ -89,7 +89,9 @@ a{color:var(--cyan);text-decoration:none}
 .cta-block h2{font-family:Georgia,serif;font-size:30px;margin:0 0 10px}
 .cta-block p{color:var(--dim);font-size:14px;max-width:520px;margin:0 auto 20px;font-style:italic}
 .cta-block a.cta{display:inline-block;background:linear-gradient(90deg,var(--cyan),var(--violet));
-  color:var(--bg);font-weight:800;padding:14px 30px;border-radius:10px;font-size:14px}
+  color:var(--bg);font-weight:800;padding:14px 26px;border-radius:10px;font-size:14px;
+  margin:0 6px}
+.cta-block a.cta.cta-alt{background:transparent;border:1px solid var(--cyan);color:var(--cyan)}
 .cta-block .small{margin-top:18px;font-size:12px;color:var(--dim)}
 
 /* Widgets compartidos dentro de los mockups */
