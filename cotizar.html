@@ -375,28 +375,85 @@ function validate(d){
   return true;
 }
 
-function buildMessage(d){
+// ── Mensaje formateado para WhatsApp (con *negrita* y _cursiva_) ──
+function buildWaMessage(d){
   const lines = [
-    "👋 *Solicitud de cotización · ByteNova*",
+    "🚀 *NUEVA COTIZACIÓN · ByteNova*",
     "",
-    "🙋 *Sobre mí*",
-    `• Nombre: ${d.name}` + (d.role ? ` (${d.role})` : ""),
-    `• Empresa: ${d.company}` + (d.sector ? ` · ${d.sector}` : ""),
-    `• WhatsApp: ${d.phone}`,
-    d.email ? `• Correo: ${d.email}` : "",
+    "*👤 Contacto*",
+    `• ${d.name}` + (d.role ? ` — ${d.role}` : ""),
+    `• ${d.company}` + (d.sector ? ` (${d.sector})` : ""),
+    `• 📱 ${d.phone}`,
+    d.email ? `• ✉️ ${d.email}` : "",
     "",
-    "🎯 *Lo que necesito*",
+    "*🎯 Proyecto*",
     `• Servicios: ${d.services.join(", ")}`,
     `• Plazo: ${d.when}`,
     d.budget ? `• Presupuesto: ${d.budget}` : "",
     "",
-    "📋 *Descripción del proyecto*",
+    "*📝 Descripción*",
     d.problem,
     "",
   ];
-  if(d.source) lines.push(`🔗 Los conocí por: ${d.source}`);
-  lines.push("", "_Enviado desde el cotizador del sitio web_");
+  if(d.source) lines.push(`_Fuente: ${d.source}_`);
+  lines.push("_Enviado desde el cotizador web de ByteNova_");
   return lines.filter(l => l !== "").join("\n");
+}
+
+// ── Mensaje formateado para correo (texto plano alineado, sin asteriscos) ──
+function buildEmailMessage(d){
+  // alineación tipo "etiqueta:   valor" con padding
+  const pad = (label, w = 13) => (label + ":").padEnd(w);
+  const line = "─".repeat(48);
+
+  const contact = [
+    pad("Nombre")      + d.name,
+    d.role    ? pad("Cargo")    + d.role    : null,
+    pad("Empresa")     + d.company,
+    d.sector  ? pad("Sector")   + d.sector  : null,
+    pad("WhatsApp")    + d.phone,
+    d.email   ? pad("Correo")   + d.email   : null,
+  ].filter(Boolean);
+
+  const need = [
+    pad("Servicios")   + d.services.join(", "),
+    pad("Plazo")       + d.when,
+    d.budget  ? pad("Presupuesto") + d.budget : null,
+  ].filter(Boolean);
+
+  const out = [
+    "NUEVA SOLICITUD DE COTIZACIÓN — ByteNova",
+    line,
+    "",
+    "👤 CONTACTO",
+    "",
+    ...contact.map(l => "   " + l),
+    "",
+    line,
+    "",
+    "🎯 NECESIDAD",
+    "",
+    ...need.map(l => "   " + l),
+    "",
+    line,
+    "",
+    "📝 DESCRIPCIÓN DEL PROYECTO",
+    "",
+    ...d.problem.split("\n").map(l => "   " + l.trim()),
+    "",
+    line,
+  ];
+  if(d.source) {
+    out.push("", "📍 ORIGEN", "", "   " + d.source);
+  }
+  out.push(
+    "",
+    line,
+    "",
+    "Enviado desde el cotizador web de ByteNova",
+    "https://duvanp11.github.io/bytenova/cotizar.html"
+  );
+  return out.join("\n");
 }
 
 function submitQuote(ev){
@@ -404,7 +461,7 @@ function submitQuote(ev){
   const d = getFormData();
   if(!validate(d)) return false;
 
-  const msg = buildMessage(d);
+  const msg = buildWaMessage(d);
   const url = `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
   window.open(url, "_blank", "noopener");
   return false;
@@ -414,8 +471,8 @@ function sendByEmail(){
   const d = getFormData();
   if(!validate(d)) return;
 
-  const msgPlain = buildMessage(d).replace(/\*/g, "").replace(/_/g, "");
-  const subject = `Cotización · ${d.company} · ${d.services.join(", ")}`;
+  const msgPlain = buildEmailMessage(d);
+  const subject = `💼 Cotización · ${d.company} · ${d.services.join(", ")}`;
   const msgFull = `Para: ${MAIL}\nAsunto: ${subject}\n\n${msgPlain}`;
 
   // Muestra modal con 3 opciones (copiar / Gmail / mailto)
