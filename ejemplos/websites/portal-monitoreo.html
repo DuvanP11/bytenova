@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portal de Monitoreo — ByteNova</title>
+<link rel="stylesheet" href="../_styles.css">
+</head><body>
+
+<div class="topbar"><div class="inner">
+  <div class="brand">BYTENOVA · SHOWROOM</div>
+  <a class="back" href="../../showroom.html#websites">← Volver al showroom</a>
+</div></div>
+
+<div class="page-head">
+  <div class="kick" style="color:var(--cyan)">SERVICIO 01 · EJEMPLO 1 DE 5</div>
+  <h1>🛰️ Portal de monitoreo</h1>
+  <p class="sub">Dashboard con login para que su equipo vea métricas en vivo: ventas, sistemas, equipos en campo. Alertas automáticas al WhatsApp.</p>
+  <div class="tags">
+    <span class="tag">Login</span><span class="tag">Tiempo real</span>
+    <span class="tag">Alertas WhatsApp</span><span class="tag">2-4 sem</span><span class="tag">$5-10 MM COP</span>
+  </div>
+</div>
+
+<div class="view-tabs">
+  <button class="active" data-v="v1">📊 Dashboard</button>
+  <button data-v="v2">👥 Equipos en campo</button>
+  <button data-v="v3">🔔 Alertas</button>
+</div>
+
+<div class="demo">
+  <!-- VISTA 1: Dashboard -->
+  <div class="view active" id="v1"><div class="browser">
+    <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">monitoreo.suempresa.co/dashboard</div></div>
+    <div class="body" style="display:flex;background:#070b18;min-height:620px">
+      <div class="mk" style="display:contents"><div class="sidebar">
+        <div class="brand">MONITOREO</div>
+        <div class="item active"><span class="ico">📊</span> Dashboard</div>
+        <div class="item"><span class="ico">👥</span> Equipos</div>
+        <div class="item"><span class="ico">🔔</span> Alertas</div>
+        <div class="item"><span class="ico">📈</span> Reportes</div>
+        <div class="item"><span class="ico">🗺️</span> Mapa</div>
+        <div class="item"><span class="ico">⚙️</span> Config</div>
+        <div style="margin-top:auto;padding:14px 20px;font-size:11px;color:#9099c0;border-top:1px solid #1f2748">
+          <div style="font-weight:700;color:#e8ecff">Sara Ramírez</div>
+          <div>Admin · sara@empresa.co</div>
+        </div>
+      </div>
+      <div class="main dark">
+        <div class="row" style="justify-content:space-between">
+          <div><h2 class="t light">Panel de control</h2><div class="sub">Miércoles · 24 Junio 2026 · 09:42</div></div>
+          <div class="row"><span class="pill v">Día 47/90 del plan</span><span class="btn">+ Nueva métrica</span></div>
+        </div>
+        <div class="grid4">
+          <div class="kpi dark c"><div class="l">Activos hoy</div><div class="v">128</div><div class="s" style="color:#4ade80">↑ +12 vs ayer</div></div>
+          <div class="kpi dark v"><div class="l">Alertas abiertas</div><div class="v">7</div><div class="s" style="color:#f87171">3 críticas</div></div>
+          <div class="kpi dark g"><div class="l">Sistemas OK</div><div class="v">98%</div><div class="s" style="color:#4ade80">SLA cumplido</div></div>
+          <div class="kpi dark a"><div class="l">Latencia p95</div><div class="v">142 ms</div><div class="s" style="color:#fbbf24">↓ 18 ms</div></div>
+        </div>
+        <div class="grid2">
+          <div class="card dark">
+            <div class="row" style="justify-content:space-between"><b>📈 Tráfico últimas 24 h</b><span class="pill c">En vivo</span></div>
+            <div class="chart dark" style="margin-top:14px"><div class="bars">
+              <div class="b" style="height:42%"><span class="l">10:00</span></div>
+              <div class="b" style="height:58%"></div>
+              <div class="b" style="height:35%"></div>
+              <div class="b" style="height:78%"></div>
+              <div class="b" style="height:55%"><span class="l">14:00</span></div>
+              <div class="b" style="height:70%"></div>
+              <div class="b" style="height:48%"></div>
+              <div class="b" style="height:88%"></div>
+              <div class="b" style="height:62%"><span class="l">18:00</span></div>
+              <div class="b" style="height:75%"></div>
+              <div class="b" style="height:90%"></div>
+              <div class="b" style="height:68%"><span class="l">22:00</span></div>
+            </div></div>
+          </div>
+          <div class="card dark">
+            <b>⚠️ Últimas alertas</b>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+              <div class="row" style="justify-content:space-between;padding:8px;background:rgba(248,113,113,.08);border-radius:8px;border-left:3px solid #f87171"><div><span class="pill r">CRIT</span> Disco lleno · servidor-03</div><span style="font-size:11px;color:#9099c0">09:38</span></div>
+              <div class="row" style="justify-content:space-between;padding:8px;background:rgba(251,191,36,.08);border-radius:8px;border-left:3px solid #fbbf24"><div><span class="pill a">WARN</span> Latencia API &gt; 500 ms</div><span style="font-size:11px;color:#9099c0">09:21</span></div>
+              <div class="row" style="justify-content:space-between;padding:8px;background:rgba(251,191,36,.08);border-radius:8px;border-left:3px solid #fbbf24"><div><span class="pill a">WARN</span> Worker emails atrasado</div><span style="font-size:11px;color:#9099c0">08:54</span></div>
+              <div class="row" style="justify-content:space-between;padding:8px;background:rgba(74,222,128,.06);border-radius:8px;border-left:3px solid #4ade80"><div><span class="pill g">OK</span> Backup nocturno OK</div><span style="font-size:11px;color:#9099c0">02:00</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="card dark">
+          <div class="row" style="justify-content:space-between"><b>🗺️ Equipos en operación · 54 activos</b><a style="font-size:12px">Ver mapa →</a></div>
+          <table class="dark" style="margin-top:12px"><thead>
+            <tr><th>Equipo</th><th>Ubicación</th><th>Estado</th><th>Última señal</th></tr>
+          </thead><tbody>
+            <tr><td><b>RUTA-04</b> · Carlos T.</td><td>Cra 30 #45-22, Bogotá</td><td><span class="pill g">En ruta</span></td><td>hace 12 s</td></tr>
+            <tr><td><b>RUTA-09</b> · Ana López</td><td>Av. Boyacá #82-15</td><td><span class="pill g">En cliente</span></td><td>hace 2 min</td></tr>
+            <tr><td><b>RUTA-12</b> · Pedro M.</td><td>Calle 100 #18-30</td><td><span class="pill a">Demora</span></td><td>hace 8 min</td></tr>
+            <tr><td><b>RUTA-15</b> · Sara R.</td><td>Cra 7 #72-12</td><td><span class="pill g">Entregando</span></td><td>hace 24 s</td></tr>
+            <tr><td><b>RUTA-21</b> · Luis B.</td><td>Calle 53 #25-08</td><td><span class="pill r">Sin señal</span></td><td>hace 18 min</td></tr>
+          </tbody></table>
+        </div>
+      </div></div>
+    </div>
+  </div></div>
+
+  <!-- VISTA 2: Equipos -->
+  <div class="view" id="v2"><div class="browser">
+    <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">monitoreo.suempresa.co/equipos</div></div>
+    <div class="body" style="display:flex;background:#070b18;min-height:620px">
+      <div class="mk" style="display:contents"><div class="sidebar">
+        <div class="brand">MONITOREO</div>
+        <div class="item"><span class="ico">📊</span> Dashboard</div>
+        <div class="item active"><span class="ico">👥</span> Equipos</div>
+        <div class="item"><span class="ico">🔔</span> Alertas</div>
+        <div class="item"><span class="ico">📈</span> Reportes</div>
+        <div class="item"><span class="ico">🗺️</span> Mapa</div>
+        <div class="item"><span class="ico">⚙️</span> Config</div>
+      </div>
+      <div class="main dark">
+        <div class="row" style="justify-content:space-between">
+          <h2 class="t light">Equipos en campo · 54 activos</h2>
+          <div class="row"><span class="pill c">🟢 En operación 48</span><span class="pill a">🟡 Demora 3</span><span class="pill r">🔴 Sin señal 3</span></div>
+        </div>
+        <div class="card dark" style="height:340px;position:relative;background:linear-gradient(135deg,rgba(90,242,255,.08),rgba(139,108,255,.05))">
+          <div style="font-weight:700">🗺️ Bogotá D.C. — vista en vivo</div>
+          <div style="position:absolute;left:18%;top:30%;width:14px;height:14px;border-radius:50%;background:#4ade80;box-shadow:0 0 18px #4ade80"></div>
+          <div style="position:absolute;left:32%;top:45%;width:14px;height:14px;border-radius:50%;background:#4ade80;box-shadow:0 0 18px #4ade80"></div>
+          <div style="position:absolute;left:48%;top:25%;width:14px;height:14px;border-radius:50%;background:#5af2ff;box-shadow:0 0 18px #5af2ff"></div>
+          <div style="position:absolute;left:55%;top:55%;width:14px;height:14px;border-radius:50%;background:#fbbf24;box-shadow:0 0 18px #fbbf24"></div>
+          <div style="position:absolute;left:68%;top:35%;width:14px;height:14px;border-radius:50%;background:#4ade80;box-shadow:0 0 18px #4ade80"></div>
+          <div style="position:absolute;left:75%;top:62%;width:14px;height:14px;border-radius:50%;background:#f87171;box-shadow:0 0 18px #f87171"></div>
+          <div style="position:absolute;left:42%;top:72%;width:14px;height:14px;border-radius:50%;background:#4ade80;box-shadow:0 0 18px #4ade80"></div>
+          <div style="position:absolute;left:25%;top:60%;width:14px;height:14px;border-radius:50%;background:#5af2ff;box-shadow:0 0 18px #5af2ff"></div>
+          <div style="position:absolute;right:18px;bottom:18px;background:#0e1430;padding:8px 14px;border-radius:8px;font-size:11px;color:#9099c0">54 equipos · OpenStreetMap</div>
+        </div>
+        <div class="card dark"><b>📋 Listado de equipos</b>
+          <table class="dark" style="margin-top:12px"><thead>
+            <tr><th>Equipo</th><th>Operador</th><th>Zona</th><th>Estado</th><th>Tareas hoy</th><th>Acción</th></tr>
+          </thead><tbody>
+            <tr><td><b>RUTA-04</b></td><td>Carlos Tovar</td><td>Suba</td><td><span class="pill g">En ruta</span></td><td>8/12</td><td><a>Ver detalle</a></td></tr>
+            <tr><td><b>RUTA-09</b></td><td>Ana López</td><td>Engativá</td><td><span class="pill g">Cliente</span></td><td>5/8</td><td><a>Ver detalle</a></td></tr>
+            <tr><td><b>RUTA-12</b></td><td>Pedro Morales</td><td>Chapinero</td><td><span class="pill a">Demora</span></td><td>3/9</td><td><a>Llamar</a></td></tr>
+            <tr><td><b>RUTA-15</b></td><td>Sara Ramírez</td><td>Centro</td><td><span class="pill g">Entregando</span></td><td>11/14</td><td><a>Ver detalle</a></td></tr>
+            <tr><td><b>RUTA-18</b></td><td>Diego Rojas</td><td>Kennedy</td><td><span class="pill g">En ruta</span></td><td>7/10</td><td><a>Ver detalle</a></td></tr>
+            <tr><td><b>RUTA-21</b></td><td>Luis Buitrago</td><td>Usaquén</td><td><span class="pill r">Sin señal</span></td><td>4/8</td><td><a style="color:#f87171">⚠ Investigar</a></td></tr>
+          </tbody></table>
+        </div>
+      </div></div>
+    </div>
+  </div></div>
+
+  <!-- VISTA 3: Alertas -->
+  <div class="view" id="v3"><div class="browser">
+    <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">monitoreo.suempresa.co/alertas</div></div>
+    <div class="body" style="display:flex;background:#070b18;min-height:620px">
+      <div class="mk" style="display:contents"><div class="sidebar">
+        <div class="brand">MONITOREO</div>
+        <div class="item"><span class="ico">📊</span> Dashboard</div>
+        <div class="item"><span class="ico">👥</span> Equipos</div>
+        <div class="item active"><span class="ico">🔔</span> Alertas</div>
+        <div class="item"><span class="ico">📈</span> Reportes</div>
+        <div class="item"><span class="ico">🗺️</span> Mapa</div>
+        <div class="item"><span class="ico">⚙️</span> Config</div>
+      </div>
+      <div class="main dark">
+        <div class="row" style="justify-content:space-between">
+          <h2 class="t light">Centro de alertas</h2>
+          <div class="row"><span class="pill">Todas</span><span class="pill r">3 críticas</span><span class="pill a">4 warning</span><span class="pill g">Resueltas</span></div>
+        </div>
+        <div class="grid3">
+          <div class="kpi dark r"><div class="l">Críticas abiertas</div><div class="v" style="color:#f87171">3</div></div>
+          <div class="kpi dark a"><div class="l">Warnings</div><div class="v" style="color:#fbbf24">4</div></div>
+          <div class="kpi dark g"><div class="l">Resueltas (hoy)</div><div class="v" style="color:#4ade80">18</div></div>
+        </div>
+        <div class="card dark"><b>🚨 Alertas activas</b>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+            <div style="padding:14px;background:rgba(248,113,113,.08);border-radius:10px;border-left:3px solid #f87171">
+              <div class="row" style="justify-content:space-between"><div><span class="pill r">CRIT</span> <b>Disco lleno · servidor-03</b></div><span style="font-size:11px;color:#9099c0">09:38 · 4 min</span></div>
+              <div style="font-size:12px;color:#9099c0;margin-top:4px">Espacio libre: 2.1 GB de 480 GB · Patrón normal: &gt;50 GB libre</div>
+              <div class="row" style="margin-top:8px;gap:6px"><span class="btn" style="background:#5af2ff;color:#070b18">📞 Llamar DevOps</span><span class="pill v">Notificado WA: Andrés</span></div>
+            </div>
+            <div style="padding:14px;background:rgba(248,113,113,.08);border-radius:10px;border-left:3px solid #f87171">
+              <div class="row" style="justify-content:space-between"><div><span class="pill r">CRIT</span> <b>RUTA-21 sin señal hace 18 min</b></div><span style="font-size:11px;color:#9099c0">09:24 · 18 min</span></div>
+              <div style="font-size:12px;color:#9099c0;margin-top:4px">Operador: Luis Buitrago · Última ubicación: Calle 53 #25-08, Usaquén</div>
+            </div>
+            <div style="padding:14px;background:rgba(248,113,113,.08);border-radius:10px;border-left:3px solid #f87171">
+              <div class="row" style="justify-content:space-between"><div><span class="pill r">CRIT</span> <b>API ventas: 23 errores 5xx en 1 min</b></div><span style="font-size:11px;color:#9099c0">09:18 · 24 min</span></div>
+            </div>
+            <div style="padding:14px;background:rgba(251,191,36,.08);border-radius:10px;border-left:3px solid #fbbf24">
+              <div class="row" style="justify-content:space-between"><div><span class="pill a">WARN</span> Latencia API &gt; 500 ms (umbral 300)</div><span style="font-size:11px;color:#9099c0">09:21</span></div>
+            </div>
+            <div style="padding:14px;background:rgba(251,191,36,.08);border-radius:10px;border-left:3px solid #fbbf24">
+              <div class="row" style="justify-content:space-between"><div><span class="pill a">WARN</span> Worker emails atrasado (32 en cola)</div><span style="font-size:11px;color:#9099c0">08:54</span></div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div></div>
+</div>
+
+<div class="about">
+  <div>
+    <h2>¿Para quién es este portal?</h2>
+    <p>Empresas con <b>equipos en campo</b> (delivery, mantenimiento, ventas), <b>infraestructura crítica</b> (e-commerce, fintech, SaaS) u operaciones donde <b>perder 5 minutos cuesta dinero</b>.</p>
+    <p>El portal centraliza todas las métricas y alertas en una sola pantalla, configurable por roles. El equipo de operaciones lo deja prendido en la pared; los gerentes lo abren desde el celular cuando algo se sale del normal.</p>
+    <p>Las alertas críticas <b>llegan al WhatsApp del responsable</b> antes de que el cliente note algo. Logs y auditoría completa para cumplimiento.</p>
+  </div>
+  <div class="features">
+    <h3>QUÉ INCLUYE</h3>
+    <ul>
+      <li>Login con roles (admin, operativo, gerencia)</li>
+      <li>Dashboard de KPIs en vivo configurable</li>
+      <li>Mapa con GPS de equipos en campo</li>
+      <li>Sistema de alertas con WhatsApp / correo</li>
+      <li>Logs y auditoría completa</li>
+      <li>Reportes exportables (Excel / PDF)</li>
+      <li>Hasta 20 usuarios incluidos</li>
+    </ul>
+    <div class="meta-line">
+      <b>Tiempo:</b> 2-4 semanas<br>
+      <b>Inversión:</b> $5-10 MM COP<br>
+      <b>Stack:</b> React + FastAPI + PostgreSQL
+    </div>
+  </div>
+</div>
+
+<div class="cta-block">
+  <h2>¿Lo quieren para su operación?</h2>
+  <p>30 minutos de diagnóstico — sin compromiso, gratuito. Le decimos honestamente si encaja con su caso.</p>
+  <a class="cta" href="https://calendly.com/bytenova38/30min" target="_blank">Agendar diagnóstico →</a>
+  <div class="small">calendly.com/bytenova38/30min · WhatsApp +57 322 406 5731</div>
+</div>
+
+<script>
+document.querySelectorAll('.view-tabs button').forEach(b=>{
+  b.onclick = () => {
+    document.querySelectorAll('.view-tabs button').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById(b.dataset.v).classList.add('active');
+  };
+});
+</script>
+</body></html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Procesamiento masivo facturas — ByteNova</title>
+<link rel="stylesheet" href="../_styles.css">
+</head><body>
+
+<div class="topbar"><div class="inner">
+  <div class="brand">BYTENOVA · SHOWROOM</div>
+  <a class="back" href="../../showroom.html#auto">← Volver al showroom</a>
+</div></div>
+
+<div class="page-head">
+  <div class="kick" style="color:var(--amber)">SERVICIO 04 · EJEMPLO 5 DE 5</div>
+  <h1>📦 Procesamiento masivo de facturas</h1>
+  <p class="sub">Sube 200 facturas a la vez. El sistema valida cálculos, NIT, duplicados, y las carga a Siigo en lote. Lo que no cuadra, lo aparta para revisión.</p>
+  <div class="tags">
+    <span class="tag">Validación auto</span><span class="tag">Detección duplicados</span>
+    <span class="tag">Carga lote</span><span class="tag">3-4 sem</span><span class="tag">$7-12 MM COP</span>
+  </div>
+</div>
+
+<div class="demo"><div class="browser">
+  <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">facturas.suempresa.co/lote</div></div>
+  <div class="body" style="background:#f8f5ff;min-height:720px;padding:28px">
+    <div class="mk" style="display:flex;flex-direction:column;gap:18px">
+      <div class="row" style="justify-content:space-between"><div><h2 class="t">📥 Procesador de facturas masivo</h2><div class="sub">Lote actual: #L-2026-06-3 · 248 facturas · iniciado a las 09:42</div></div><div class="row"><span class="pill v">Procesando…</span><span class="btn">📤 Cargar nuevo lote</span></div></div>
+      <div class="card"><div class="row" style="justify-content:space-between;align-items:center"><div><b>Lote #L-2026-06-3 · 248 facturas · iniciado a las 09:42</b><div style="font-size:12px;color:#6b5f8a;margin-top:4px">Origen: carpeta /facturas/junio · Tipo: facturas de compra (proveedores)</div></div><div style="text-align:right"><div style="font-size:24px;font-weight:800;color:#5af2ff">68%</div><div style="font-size:11px;color:#9099c0">168 / 248 procesadas</div></div></div>
+        <div class="bar-progress" style="height:12px;margin-top:14px"><div class="fill" style="width:68%"></div></div>
+        <div style="font-size:11px;color:#6b5f8a;margin-top:6px">⏱️ Tiempo estimado restante: 6 min 12s · velocidad: 12 facturas/min</div>
+      </div>
+      <div class="grid4">
+        <div class="kpi c"><div class="l">Total lote</div><div class="v">248</div></div>
+        <div class="kpi g"><div class="l">Validadas OK</div><div class="v" style="color:#16a34a">152</div><div class="s">listas para cargar a Siigo</div></div>
+        <div class="kpi a"><div class="l">Por revisar</div><div class="v" style="color:#c2780f">14</div><div class="s">requieren visto bueno</div></div>
+        <div class="kpi r"><div class="l">Rechazadas</div><div class="v" style="color:#dc2626">2</div><div class="s">duplicadas / inválidas</div></div>
+      </div>
+      <div class="card"><div class="row" style="justify-content:space-between"><b>📋 Resultados detallados</b><div class="row"><span class="pill">Todas</span><span class="pill g">OK (152)</span><span class="pill a">Revisar (14)</span><span class="pill r">Rechazadas (2)</span></div></div>
+        <table style="margin-top:14px"><thead><tr><th>Factura</th><th>Proveedor</th><th>NIT</th><th>Fecha</th><th>Valor</th><th>IVA calc / decl</th><th>Estado</th><th>Acción</th></tr></thead><tbody>
+          <tr><td><b>FC-104310</b></td><td>Distribuidora ABC</td><td>901.123.456</td><td>15/06</td><td>$ 4.250.000</td><td>$ 807.500 ✓</td><td><span class="pill g">Válida</span></td><td>→ Cargar Siigo</td></tr>
+          <tr><td><b>FC-104309</b></td><td>El Tornillo SAS</td><td>800.456.123</td><td>15/06</td><td>$ 1.840.000</td><td>$ 349.600 ✓</td><td><span class="pill g">Válida</span></td><td>→ Cargar Siigo</td></tr>
+          <tr style="background:rgba(251,191,36,.06)"><td><b>FC-104228</b></td><td>Repuestos XYZ</td><td>900.789.123</td><td>14/06</td><td>$ 471.000</td><td><span style="color:#c2780f">$ 89.520 / 95.000</span></td><td><span class="pill a">⚠ IVA inconsist.</span></td><td><a style="font-size:12px">Revisar</a></td></tr>
+          <tr style="background:rgba(251,191,36,.06)"><td><b>FC-104221</b></td><td>Hermanos López</td><td>123.456.789</td><td>14/06</td><td>$ 1.200.000</td><td>$ 228.000 ✓</td><td><span class="pill a">⚠ NIT no listado</span></td><td><a style="font-size:12px">Agregar prov.</a></td></tr>
+          <tr><td><b>FC-104215</b></td><td>Ferretería Don Juan</td><td>901.234.567</td><td>13/06</td><td>$ 680.000</td><td>$ 129.200 ✓</td><td><span class="pill g">Válida</span></td><td>→ Cargar Siigo</td></tr>
+          <tr style="background:rgba(248,113,113,.08)"><td><b>FC-104198</b></td><td>Distribuidora ABC</td><td>901.123.456</td><td>12/06</td><td>$ 4.250.000</td><td>—</td><td><span class="pill r">✗ DUPLICADA</span></td><td><a style="font-size:12px;color:#dc2626">Ver original</a></td></tr>
+          <tr><td><b>FC-104190</b></td><td>Pinturas del Sur</td><td>800.123.456</td><td>12/06</td><td>$ 2.190.000</td><td>$ 416.100 ✓</td><td><span class="pill g">Válida</span></td><td>→ Cargar Siigo</td></tr>
+          <tr style="background:rgba(248,113,113,.08)"><td><b>FC-104185</b></td><td>NIT inválido</td><td style="color:#dc2626">000.000.000</td><td>11/06</td><td>$ 580.000</td><td>—</td><td><span class="pill r">✗ NIT inválido</span></td><td><a style="font-size:12px;color:#dc2626">Eliminar</a></td></tr>
+          <tr><td><b>FC-104182</b></td><td>Maderas y Más</td><td>900.456.789</td><td>11/06</td><td>$ 3.450.000</td><td>$ 655.500 ✓</td><td><span class="pill g">Válida</span></td><td>→ Cargar Siigo</td></tr>
+        </tbody></table>
+      </div>
+      <div class="row" style="gap:14px;justify-content:flex-end"><button style="background:#fff;border:1px solid #d8d0ec;color:#1e1333;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:700">📊 Exportar reporte</button><button style="background:linear-gradient(90deg,#5af2ff,#8b6cff);color:#070b18;border:none;padding:10px 22px;border-radius:8px;cursor:pointer;font-weight:800">✓ Cargar 152 facturas válidas a Siigo →</button></div>
+    </div>
+  </div>
+</div></div>
+
+<div class="about">
+  <div>
+    <h2>¿Para qué área?</h2>
+    <p>Empresas con <b>50+ facturas mensuales de proveedores</b>: distribuidores, ferreterías, restaurantes, constructoras. Hoy la persona de contabilidad las captura una por una a Siigo, validando NIT y revisando duplicados a ojo.</p>
+    <p>El sistema acepta lotes (carpeta con PDFs, ZIP, conexión a buzón de correo). Extrae datos con OCR, valida cálculos (subtotal + IVA = total), verifica el NIT contra DIAN, busca duplicados (mismo NIT + mismo valor + fecha cercana). Lo limpio lo carga a Siigo automáticamente. Lo dudoso, lo aparta.</p>
+    <p>Una persona que antes procesaba 30 facturas al día, ahora supervisa 300 en lote.</p>
+  </div>
+  <div class="features">
+    <h3>QUÉ INCLUYE</h3>
+    <ul>
+      <li>Carga por lote (carpeta / ZIP / buzón email)</li>
+      <li>OCR para extraer datos de PDFs</li>
+      <li>Validación NIT contra DIAN</li>
+      <li>Detección de duplicados</li>
+      <li>Validación matemática (sub + IVA = total)</li>
+      <li>Carga a Siigo / World Office / SAP</li>
+      <li>Reporte de excepciones</li>
+    </ul>
+    <div class="meta-line">
+      <b>Tiempo:</b> 3-4 semanas<br>
+      <b>Inversión:</b> $7-12 MM COP<br>
+      <b>Stack:</b> FastAPI + OCR + ERP API
+    </div>
+  </div>
+</div>
+
+<div class="cta-block">
+  <h2>¿Captura facturas a mano?</h2>
+  <p>Si procesa 50+ facturas al mes, esto se paga en 2-3 meses. Conversamos 30 minutos.</p>
+  <a class="cta" href="https://calendly.com/bytenova38/30min" target="_blank">Agendar diagnóstico →</a>
+  <div class="small">calendly.com/bytenova38/30min · WhatsApp +57 322 406 5731</div>
+</div>
+
+</body></html>

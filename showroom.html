@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ByteNova · Showroom de ejemplos</title>
+<link rel="icon" type="image/png" href="https://duvanp11.github.io/bytenova/favicon.png">
+<style>
+:root {
+  --bg:#070b18; --bg2:#0b1124; --panel:#131a35; --panel2:#0e1430;
+  --text:#e8ecff; --dim:#9099c0; --line:#222b50;
+  --cyan:#5af2ff; --violet:#8b6cff; --green:#4ade80; --amber:#fbbf24;
+  --red:#f87171; --pink:#f472b6; --orange:#fb923c;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:var(--cyan);text-decoration:none}
+img{max-width:100%}
+
+/* ── Hero ───────────────────────────────────────────────── */
+.hero{position:relative;padding:60px 24px 80px;text-align:center;overflow:hidden;
+  background:
+    radial-gradient(900px 500px at 80% -8%,rgba(139,108,255,.20),transparent 60%),
+    radial-gradient(800px 500px at -10% 0%,rgba(90,242,255,.14),transparent 55%),
+    var(--bg)}
+.hero .logo{width:90px;height:90px;border-radius:50%;margin:0 auto 18px;display:block;
+  box-shadow:0 0 40px rgba(90,242,255,.3)}
+.hero .kick{font-size:12px;letter-spacing:8px;color:var(--cyan);font-weight:800;margin-bottom:12px}
+.hero h1{font-family:Georgia,serif;font-size:46px;font-weight:700;margin:0 0 12px;
+  background:linear-gradient(90deg,#fff,var(--cyan) 60%,var(--violet));
+  -webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1}
+.hero .sub{font-size:18px;color:var(--dim);max-width:680px;margin:0 auto 28px;font-style:italic}
+.hero .pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.hero .pill{padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;
+  background:var(--panel);border:1px solid var(--line);color:var(--text);cursor:pointer;
+  transition:all .2s}
+.hero .pill:hover{border-color:var(--cyan);transform:translateY(-2px)}
+
+/* ── Sticky nav ─────────────────────────────────────────── */
+.nav{position:sticky;top:0;z-index:50;background:rgba(7,11,24,.92);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:14px 24px}
+.nav .inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;
+  align-items:center;gap:20px;flex-wrap:wrap}
+.nav .brand{font-size:14px;font-weight:900;letter-spacing:3px;
+  background:linear-gradient(90deg,var(--cyan),var(--violet));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0;flex-wrap:wrap}
+.nav a{color:var(--dim);font-size:13px;font-weight:600;padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--text);border-bottom-color:var(--cyan)}
+
+/* ── Sections ───────────────────────────────────────────── */
+section.cat{padding:64px 24px 32px;border-top:1px solid var(--line)}
+section.cat .inner{max-width:1200px;margin:0 auto}
+section.cat .lbl{font-size:11px;letter-spacing:6px;font-weight:800;margin-bottom:6px}
+section.cat h2{font-family:Georgia,serif;font-size:36px;font-weight:700;margin:0 0 8px;color:var(--text)}
+section.cat .desc{color:var(--dim);font-size:15px;max-width:760px;margin:0 0 36px;font-style:italic}
+
+.grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(360px,1fr))}
+.grid.phones{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+
+.example{background:var(--panel);border:1px solid var(--line);border-radius:18px;
+  padding:18px;display:flex;flex-direction:column;gap:14px;transition:transform .2s,border-color .2s;
+  position:relative;cursor:pointer;color:inherit;text-decoration:none}
+.example:hover{transform:translateY(-4px);border-color:var(--cyan)}
+.example:hover .open-btn{opacity:1;transform:translateY(0)}
+.example .open-btn{position:absolute;top:14px;right:14px;background:rgba(7,11,24,.85);
+  color:var(--cyan);border:1px solid var(--cyan);border-radius:999px;padding:6px 14px;
+  font-size:11px;font-weight:800;opacity:0;transform:translateY(-4px);transition:all .2s;
+  letter-spacing:1px;z-index:10}
+.example .ttl{font-size:18px;font-weight:800;color:var(--text)}
+.example .sub{font-size:13px;color:var(--dim);line-height:1.5;margin-top:-6px}
+.example .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.example .tag{font-size:10px;font-weight:700;padding:4px 10px;border-radius:999px;
+  background:var(--panel2);border:1px solid var(--line);color:var(--dim);letter-spacing:.5px;text-transform:uppercase}
+.example .tag.c{background:rgba(90,242,255,.12);color:var(--cyan);border-color:transparent}
+.example .tag.v{background:rgba(139,108,255,.15);color:var(--violet);border-color:transparent}
+.example .tag.g{background:rgba(74,222,128,.15);color:var(--green);border-color:transparent}
+.example .tag.a{background:rgba(251,191,36,.15);color:var(--amber);border-color:transparent}
+.example .tag.p{background:rgba(244,114,182,.15);color:var(--pink);border-color:transparent}
+
+/* ── Frame: browser ─────────────────────────────────────── */
+.browser{background:#fff;border-radius:10px;overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,.5);aspect-ratio:16/10}
+.browser .bar{background:#1a1f3a;padding:8px 12px;display:flex;gap:6px;align-items:center}
+.browser .bar .dot{width:10px;height:10px;border-radius:50%}
+.browser .bar .dot.r{background:#f87171}
+.browser .bar .dot.y{background:#fbbf24}
+.browser .bar .dot.g{background:#4ade80}
+.browser .bar .url{flex:1;background:#0e1430;color:#9099c0;border-radius:6px;padding:4px 10px;
+  font-size:10px;font-family:monospace;margin-left:8px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.browser .body{padding:0;overflow:hidden;height:calc(100% - 32px)}
+
+/* ── Frame: phone ───────────────────────────────────────── */
+.phone{background:#000;border-radius:28px;padding:8px;
+  box-shadow:0 12px 32px rgba(0,0,0,.6);aspect-ratio:9/19;margin:0 auto;max-width:260px}
+.phone .screen{background:var(--bg);border-radius:22px;overflow:hidden;height:100%;
+  display:flex;flex-direction:column;position:relative}
+.phone .notch{height:18px;background:#000;border-radius:0 0 14px 14px;width:80px;margin:0 auto}
+.phone .content{flex:1;padding:8px;display:flex;flex-direction:column;gap:6px;font-size:9px;color:var(--text)}
+
+/* ── Mockup widgets compartidos ─────────────────────────── */
+.mk{font-size:10px;color:#1e1333}
+/* Forzar texto oscuro en cualquier mockup con bg claro — overrides global :root --text claro */
+.mk .card:not(.dark), .mk .kpi:not(.dark), .mk table:not(.dark) td,
+.mk .main:not(.dark){color:#1e1333}
+.mk .main.dark, .mk .main.dark *:not(.pill):not(.btn):not(.l),
+.mk .card.dark *:not(.pill):not(.btn):not(.l){color:inherit}
+.mk.app{color:var(--text)}
+.mk .pad{padding:10px}
+.mk .row{display:flex;gap:6px;align-items:center}
+.mk .col{display:flex;flex-direction:column;gap:6px}
+.mk .bar-top{background:#070b18;color:#fff;padding:6px 10px;display:flex;justify-content:space-between;align-items:center;font-size:9px}
+.mk .bar-top .brand{font-weight:800;color:#5af2ff;letter-spacing:1.5px}
+.mk .bar-top .menu{display:flex;gap:8px;color:#9099c0;font-weight:500}
+.mk .sidebar{background:#0e1430;width:60px;flex-shrink:0;padding:8px 4px;display:flex;flex-direction:column;gap:6px;font-size:8px;color:#9099c0}
+.mk .sidebar .item{padding:4px 6px;border-radius:4px;text-align:center}
+.mk .sidebar .item.active{background:rgba(90,242,255,.2);color:#5af2ff;font-weight:700}
+.mk .main{flex:1;background:#f0ecf8;padding:10px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.mk .main.dark{background:#070b18;color:#e8ecff}
+.mk h3{font-size:11px;margin:0;font-weight:700}
+.mk .grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.mk .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.mk .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.mk .kpi{background:#fff;border-radius:6px;padding:8px;border-left:3px solid #6b21a8}
+.mk .kpi.dark{background:#131a35;border-left-color:#5af2ff;color:#e8ecff}
+.mk .kpi.c{border-left-color:#5af2ff}
+.mk .kpi.v{border-left-color:#8b6cff}
+.mk .kpi.g{border-left-color:#4ade80}
+.mk .kpi.a{border-left-color:#fbbf24}
+.mk .kpi.p{border-left-color:#f472b6}
+.mk .kpi .l{font-size:7px;color:#9099c0;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.mk .kpi .v{font-size:14px;font-weight:800;margin-top:2px}
+.mk .kpi.dark .l{color:#9099c0}
+.mk .card{background:#fff;border-radius:6px;padding:8px;border:1px solid #e0d8f0}
+.mk .card.dark{background:#131a35;color:#e8ecff;border:1px solid #1f2748}
+.mk .btn{background:linear-gradient(90deg,#5af2ff,#8b6cff);color:#070b18;border:none;
+  border-radius:6px;padding:5px 10px;font-size:9px;font-weight:800;cursor:pointer;display:inline-block}
+.mk .btn.dark{background:#0e1430;color:#5af2ff;border:1px solid #5af2ff}
+.mk .pill{background:#ede9f5;color:#6b21a8;border-radius:99px;padding:2px 7px;font-size:8px;font-weight:700;display:inline-block}
+.mk .pill.dark{background:rgba(90,242,255,.12);color:#5af2ff}
+.mk .pill.g{background:rgba(74,222,128,.15);color:#16a34a}
+.mk .pill.a{background:rgba(251,191,36,.15);color:#c2780f}
+.mk .pill.r{background:rgba(248,113,113,.15);color:#dc2626}
+.mk .pill.v{background:rgba(139,108,255,.15);color:#6d4cff}
+.mk table{width:100%;border-collapse:collapse;font-size:8px}
+.mk table th{background:#ede9f5;color:#6b5f8a;text-align:left;padding:4px 6px;font-weight:700;font-size:7px;text-transform:uppercase}
+.mk table td{padding:4px 6px;border-bottom:1px solid #ede9f5;color:#1e1333}
+.mk table.dark th{background:#0e1430;color:#9099c0}
+.mk table.dark td{border-bottom-color:#1f2748;color:#e8ecff}
+.mk .bar{height:6px;background:#ede9f5;border-radius:3px;overflow:hidden}
+.mk .bar .fill{height:100%;background:linear-gradient(90deg,#5af2ff,#8b6cff);border-radius:3px}
+.mk .donut{width:40px;height:40px;border-radius:50%;background:conic-gradient(#5af2ff 0% 65%,#1f2748 65% 100%);position:relative;flex-shrink:0}
+.mk .donut::before{content:'';position:absolute;inset:6px;background:#131a35;border-radius:50%}
+.mk .donut.l::before{background:#fff}
+.mk .chart{background:#fff;border-radius:6px;padding:8px;height:70px;position:relative;overflow:hidden}
+.mk .chart.dark{background:#131a35}
+.mk .chart .bars{display:flex;align-items:flex-end;gap:3px;height:54px}
+.mk .chart .b{flex:1;background:linear-gradient(180deg,#5af2ff,#8b6cff);border-radius:2px 2px 0 0}
+.mk .chart .line{stroke:#5af2ff;stroke-width:2;fill:none}
+.mk .chart .area{fill:url(#g1);opacity:.6}
+.mk .ring{width:14px;height:14px;border-radius:50%;background:#5af2ff;flex-shrink:0;display:inline-block}
+
+/* APK-specific */
+.mk.app{font-size:9px;background:var(--bg);color:var(--text);height:100%;display:flex;flex-direction:column}
+.mk.app .topbar{display:flex;justify-content:space-between;padding:8px 10px;font-size:8px;color:var(--dim);font-weight:700}
+.mk.app .hdr{padding:8px 12px 4px}
+.mk.app .hdr .t{font-size:14px;font-weight:800;color:var(--text)}
+.mk.app .hdr .s{font-size:9px;color:var(--dim)}
+.mk.app .body{flex:1;padding:8px 12px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.mk.app .tabbar{background:var(--panel2);padding:8px 6px;display:flex;justify-content:space-around;border-top:1px solid var(--line);font-size:8px;color:var(--dim);font-weight:600}
+.mk.app .tabbar .tab.active{color:var(--cyan)}
+.mk.app .acard{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px}
+
+/* CTA + footer */
+.cta-section{padding:80px 24px;text-align:center;
+  background:
+    radial-gradient(800px 400px at 50% 100%,rgba(74,222,128,.15),transparent 70%),
+    radial-gradient(700px 400px at 50% 0%,rgba(139,108,255,.18),transparent 70%),
+    var(--bg);
+  border-top:1px solid var(--line)}
+.cta-section h2{font-family:Georgia,serif;font-size:38px;margin:0 0 12px;color:var(--text)}
+.cta-section .lead{color:var(--dim);font-size:16px;max-width:580px;margin:0 auto 28px;font-style:italic}
+.cta-box{max-width:600px;margin:0 auto;background:var(--panel);border:1px solid var(--cyan);
+  border-radius:18px;padding:28px;box-shadow:0 12px 40px rgba(90,242,255,.15)}
+.cta-box .ttl{font-size:11px;letter-spacing:4px;font-weight:800;color:var(--violet);margin-bottom:10px}
+.cta-box .url{font-family:Georgia,serif;font-size:24px;font-weight:700;color:var(--cyan);margin:8px 0}
+.cta-box .sub{font-size:13px;font-style:italic;color:var(--dim)}
+.cta-box a{display:inline-block;margin-top:16px;background:linear-gradient(90deg,var(--cyan),var(--violet));
+  color:var(--bg);font-weight:800;padding:14px 30px;border-radius:10px;font-size:14px}
+.contacts{max-width:800px;margin:24px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.contact{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:14px}
+.contact .lbl{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:2px;font-weight:700}
+.contact .val{font-size:14px;font-weight:700;color:var(--text);margin-top:4px}
+footer{padding:30px;text-align:center;color:var(--dim);font-size:12px;border-top:1px solid var(--line)}
+footer .bn{color:var(--cyan);font-weight:700;letter-spacing:2px}
+
+@media(max-width:640px){
+  .hero h1{font-size:32px}
+  section.cat{padding:48px 16px 24px}
+  section.cat h2{font-size:26px}
+  .contacts{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <img src="https://duvanp11.github.io/bytenova/logo.png" class="logo"
+       onerror="this.style.display='none'">
+  <div class="kick">SHOWROOM DE EJEMPLOS</div>
+  <h1>Así se ve lo que construimos</h1>
+  <div class="sub">25 ejemplos de soluciones reales que ByteNova entrega — websites, apps móviles, CRM, automatizaciones y tableros. Cada uno hecho a medida para su operación.</div>
+  <div class="pills">
+    <a href="#websites" class="pill">🌐 Websites</a>
+    <a href="#apks" class="pill">📱 Apps móviles</a>
+    <a href="#crm" class="pill">👥 CRM</a>
+    <a href="#auto" class="pill">⚙️ Automatizaciones</a>
+    <a href="#tableros" class="pill">📊 Tableros</a>
+  </div>
+</header>
+
+<!-- ═══════════ NAV STICKY ═══════════ -->
+<nav class="nav">
+  <div class="inner">
+    <div class="brand">BYTENOVA · SHOWROOM</div>
+    <ul>
+      <li><a href="#websites">Websites</a></li>
+      <li><a href="#apks">Apps</a></li>
+      <li><a href="#crm">CRM</a></li>
+      <li><a href="#auto">Automatizaciones</a></li>
+      <li><a href="#tableros">Tableros</a></li>
+      <li><a href="#cta" style="color:var(--cyan)">Agendar →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════ WEBSITES ═══════════ -->
+<section class="cat" id="websites">
+  <div class="inner">
+    <div class="lbl" style="color:var(--cyan)">SERVICIO · 01</div>
+    <h2>Websites</h2>
+    <p class="desc">Desde landing pages que captan leads, hasta portales de monitoreo con login. Aquí 5 ejemplos representativos.</p>
+    <div class="grid">
+
+      <!-- W1: Portal de monitoreo (estilo Bytenova) -->
+      <a class="example" href="ejemplos/websites/portal-monitoreo.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">monitoreo.suempresa.co/dashboard</div></div>
+          <div class="body"><div class="mk" style="display:flex;height:100%">
+            <div class="sidebar">
+              <div class="item active">📊</div><div class="item">👥</div><div class="item">🔔</div><div class="item">📈</div><div class="item">⚙️</div>
+            </div>
+            <div class="main dark" style="background:#070b18">
+              <div class="row" style="justify-content:space-between"><h3 style="color:#5af2ff">PORTAL DE CONTROL</h3><span class="pill dark">Día 47/90</span></div>
+              <div class="grid4">
+                <div class="kpi dark c"><div class="l">Activos</div><div class="v" style="color:#5af2ff">128</div></div>
+                <div class="kpi dark v"><div class="l">Alertas</div><div class="v" style="color:#8b6cff">7</div></div>
+                <div class="kpi dark g"><div class="l">OK</div><div class="v" style="color:#4ade80">98%</div></div>
+                <div class="kpi dark a"><div class="l">Latencia</div><div class="v" style="color:#fbbf24">142ms</div></div>
+              </div>
+              <div class="card dark"><div class="row" style="justify-content:space-between"><span style="font-weight:700">Tráfico últimas 24h</span><span class="pill dark">en vivo</span></div>
+                <div class="chart dark" style="margin-top:6px;height:50px"><div class="bars" style="height:42px">
+                  <div class="b" style="height:50%"></div><div class="b" style="height:70%"></div><div class="b" style="height:40%"></div><div class="b" style="height:90%"></div><div class="b" style="height:65%"></div><div class="b" style="height:80%"></div><div class="b" style="height:55%"></div><div class="b" style="height:95%"></div><div class="b" style="height:70%"></div><div class="b" style="height:85%"></div>
+                </div></div>
+              </div>
+              <div class="card dark"><div style="font-weight:700;margin-bottom:4px">⚠️ Últimas alertas</div>
+                <div class="row" style="font-size:8px;padding:2px 0"><span class="pill r">CRIT</span>&nbsp;&nbsp;Disco lleno servidor-03</div>
+                <div class="row" style="font-size:8px;padding:2px 0"><span class="pill a">WARN</span>&nbsp;&nbsp;Latencia API > 500ms</div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">🛰️ Portal de monitoreo</div>
+        <div class="sub">Dashboard con login para que su equipo vea métricas en vivo: ventas, sistemas, equipos en campo. Alertas automáticas al WhatsApp.</div>
+        <div class="tags"><span class="tag c">Login</span><span class="tag c">Tiempo real</span><span class="tag v">Alertas</span><span class="tag">2-4 sem</span><span class="tag g">$5-10 MM</span></div>
+      </a>
+
+      <!-- W2: Landing SaaS / producto -->
+      <a class="example" href="ejemplos/websites/landing-saas.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">suproducto.co</div></div>
+          <div class="body"><div class="mk" style="height:100%;background:linear-gradient(180deg,#fff,#f7f2ff)">
+            <div class="row" style="justify-content:space-between;padding:8px 12px;border-bottom:1px solid #ede9f5;font-size:9px">
+              <span style="font-weight:800;color:#6b21a8">⚡ Suproducto</span>
+              <div class="row" style="gap:10px;color:#6b5f8a"><span>Producto</span><span>Precios</span><span>Blog</span><span class="btn" style="padding:3px 9px">Probar</span></div>
+            </div>
+            <div class="pad" style="text-align:center;padding:24px 12px 12px">
+              <div style="font-size:8px;color:#8b6cff;font-weight:700;letter-spacing:2px;margin-bottom:6px">NUEVO · v2.0</div>
+              <div style="font-size:18px;font-weight:800;color:#1e1333;line-height:1.1;margin-bottom:6px">Su título principal aquí</div>
+              <div style="font-size:9px;color:#6b5f8a;margin-bottom:10px">Subtítulo que explica el beneficio principal en una línea breve y clara.</div>
+              <div class="row" style="justify-content:center;gap:6px"><span class="btn">Empezar gratis →</span><span class="pill" style="padding:5px 10px">Ver demo</span></div>
+            </div>
+            <div class="grid3" style="padding:8px 12px">
+              <div class="card" style="text-align:center;padding:8px"><div style="font-size:14px">⚡</div><div style="font-weight:700;font-size:9px;margin-top:2px">Rápido</div></div>
+              <div class="card" style="text-align:center;padding:8px"><div style="font-size:14px">🔒</div><div style="font-weight:700;font-size:9px;margin-top:2px">Seguro</div></div>
+              <div class="card" style="text-align:center;padding:8px"><div style="font-size:14px">🌐</div><div style="font-weight:700;font-size:9px;margin-top:2px">Conectado</div></div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">🚀 Landing de producto / SaaS</div>
+        <div class="sub">Página única optimizada para convertir visitantes en pruebas o demos. Diseñada para cargar rápido y verse impecable en celular.</div>
+        <div class="tags"><span class="tag v">Conversión</span><span class="tag c">SEO</span><span class="tag">1-2 sem</span><span class="tag g">$1,5-4 MM</span></div>
+      </a>
+
+      <!-- W3: E-commerce -->
+      <a class="example" href="ejemplos/websites/ecommerce.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">tienda.suempresa.co</div></div>
+          <div class="body"><div class="mk" style="height:100%;background:#fff">
+            <div class="row" style="justify-content:space-between;padding:8px 12px;border-bottom:1px solid #ede9f5;font-size:9px">
+              <span style="font-weight:800;color:#1e1333">🛍️ Tienda</span>
+              <div class="row" style="gap:8px;color:#6b5f8a;font-size:8px">
+                <input style="border:1px solid #d8d0ec;border-radius:4px;padding:2px 6px;font-size:8px;width:80px" placeholder="Buscar..." readonly>
+                <span>♡ 3</span><span style="position:relative">🛒<span class="pill" style="position:absolute;top:-4px;right:-8px;background:#f87171;color:#fff;padding:0 4px;font-size:7px">2</span></span>
+              </div>
+            </div>
+            <div class="grid3" style="padding:10px;gap:8px">
+              <div class="card" style="padding:6px"><div style="background:linear-gradient(135deg,#fbd0e5,#a78bfa);height:42px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px">👟</div>
+                <div style="font-weight:700;font-size:8px;margin-top:4px">Zapatilla Pro</div>
+                <div class="row" style="justify-content:space-between;margin-top:2px"><span style="color:#16a34a;font-weight:700;font-size:9px">$289.000</span><span class="pill g" style="font-size:7px">-20%</span></div>
+              </div>
+              <div class="card" style="padding:6px"><div style="background:linear-gradient(135deg,#fde68a,#fb923c);height:42px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px">🎒</div>
+                <div style="font-weight:700;font-size:8px;margin-top:4px">Mochila urbana</div>
+                <div class="row" style="justify-content:space-between;margin-top:2px"><span style="color:#16a34a;font-weight:700;font-size:9px">$149.000</span></div>
+              </div>
+              <div class="card" style="padding:6px"><div style="background:linear-gradient(135deg,#a5f3fc,#5af2ff);height:42px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px">⌚</div>
+                <div style="font-weight:700;font-size:8px;margin-top:4px">Reloj smart</div>
+                <div class="row" style="justify-content:space-between;margin-top:2px"><span style="color:#16a34a;font-weight:700;font-size:9px">$520.000</span><span class="pill" style="font-size:7px">NUEVO</span></div>
+              </div>
+              <div class="card" style="padding:6px"><div style="background:linear-gradient(135deg,#fbcfe8,#f472b6);height:42px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px">🧴</div>
+                <div style="font-weight:700;font-size:8px;margin-top:4px">Skincare set</div>
+                <div class="row" style="justify-content:space-between;margin-top:2px"><span style="color:#16a34a;font-weight:700;font-size:9px">$98.000</span></div>
+              </div>
+              <div class="card" style="padding:6px"><div style="background:linear-gradient(135deg,#bbf7d0,#4ade80);height:42px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px">🎧</div>
+                <div style="font-weight:700;font-size:8px;margin-top:4px">Audífonos</div>
+                <div class="row" style="justify-content:space-between;margin-top:2px"><span style="color:#16a34a;font-weight:700;font-size:9px">$329.000</span></div>
+              </div>
+              <div class="card" style="padding:6px"><div style="background:linear-gradient(135deg,#ddd6fe,#8b5cf6);height:42px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px">📷</div>
+                <div style="font-weight:700;font-size:8px;margin-top:4px">Cámara DSLR</div>
+                <div class="row" style="justify-content:space-between;margin-top:2px"><span style="color:#16a34a;font-weight:700;font-size:9px">$1.890.000</span></div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">🛒 E-commerce</div>
+        <div class="sub">Tienda completa con catálogo, carrito, pasarela de pago (Wompi / Mercado Pago) y panel de administración. Conectada a su inventario.</div>
+        <div class="tags"><span class="tag g">Carrito</span><span class="tag v">Pasarela pago</span><span class="tag c">Admin</span><span class="tag">3-5 sem</span><span class="tag g">$6-12 MM</span></div>
+      </a>
+
+      <!-- W4: Sitio corporativo -->
+      <a class="example" href="ejemplos/websites/corporativo.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">suempresa.com</div></div>
+          <div class="body"><div class="mk" style="height:100%;background:linear-gradient(180deg,#1e293b,#0f172a);color:#fff">
+            <div class="row" style="justify-content:space-between;padding:8px 12px;font-size:9px;border-bottom:1px solid #334155">
+              <span style="font-weight:800">⚙️ SUEMPRESA</span>
+              <div class="row" style="gap:10px;color:#94a3b8"><span>Inicio</span><span>Servicios</span><span>Portafolio</span><span>Nosotros</span><span style="color:#5af2ff">Contacto</span></div>
+            </div>
+            <div class="pad" style="padding:20px 14px;text-align:center">
+              <div style="font-size:18px;font-weight:800;line-height:1.15;margin-bottom:6px">Soluciones de ingeniería para industrias exigentes</div>
+              <div style="font-size:9px;color:#94a3b8;margin-bottom:10px">15 años acompañando proyectos en LATAM</div>
+              <span class="btn">Ver portafolio →</span>
+            </div>
+            <div class="grid4" style="padding:0 12px;gap:6px">
+              <div style="background:#334155;border-radius:4px;height:30px;display:flex;align-items:center;justify-content:center;font-size:14px">🏭</div>
+              <div style="background:#334155;border-radius:4px;height:30px;display:flex;align-items:center;justify-content:center;font-size:14px">🏗️</div>
+              <div style="background:#334155;border-radius:4px;height:30px;display:flex;align-items:center;justify-content:center;font-size:14px">⚡</div>
+              <div style="background:#334155;border-radius:4px;height:30px;display:flex;align-items:center;justify-content:center;font-size:14px">🛢️</div>
+            </div>
+            <div style="font-size:7px;color:#94a3b8;padding:8px 12px;border-top:1px solid #334155;margin-top:6px;display:flex;justify-content:space-between"><span>© 2026 SuEmpresa</span><span>NIT 901.234.567-8</span></div>
+          </div></div>
+        </div>
+        <div class="ttl">🏢 Sitio corporativo</div>
+        <div class="sub">Presencia digital profesional. Páginas de servicios, portafolio, sobre nosotros, contacto. Editable por su equipo, optimizada para buscadores.</div>
+        <div class="tags"><span class="tag">CMS editable</span><span class="tag c">SEO</span><span class="tag v">Multi-idioma</span><span class="tag">2-3 sem</span><span class="tag g">$3-6 MM</span></div>
+      </a>
+
+      <!-- W5: Portal de clientes/distribuidores -->
+      <a class="example" href="ejemplos/websites/portal-clientes.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">clientes.suempresa.co/cuenta</div></div>
+          <div class="body"><div class="mk" style="display:flex;height:100%">
+            <div class="sidebar" style="width:70px;background:#1e1333"><div class="item active" style="color:#a78bfa">🏠</div><div class="item">📋</div><div class="item">📊</div><div class="item">🧾</div><div class="item">🎫</div><div class="item">⚙️</div></div>
+            <div class="main" style="background:#f8f5ff">
+              <div class="row" style="justify-content:space-between"><h3>Hola, Distribuidor XYZ 👋</h3><span class="pill v">⭐ Nivel Oro</span></div>
+              <div class="grid3">
+                <div class="kpi"><div class="l">Pedido pendiente</div><div class="v" style="color:#6b21a8">$4.2 MM</div></div>
+                <div class="kpi g"><div class="l">Cupo disponible</div><div class="v" style="color:#16a34a">$15 MM</div></div>
+                <div class="kpi a"><div class="l">Facturas por pagar</div><div class="v" style="color:#c2780f">3</div></div>
+              </div>
+              <div class="card"><div class="row" style="justify-content:space-between;margin-bottom:6px"><span style="font-weight:700">Mis últimos pedidos</span><span class="pill">Ver todos</span></div>
+                <table><thead><tr><th>Nº</th><th>Productos</th><th>Estado</th><th>Total</th></tr></thead>
+                <tbody>
+                  <tr><td>#10428</td><td>42 unid</td><td><span class="pill g">Entregado</span></td><td>$3.8M</td></tr>
+                  <tr><td>#10422</td><td>28 unid</td><td><span class="pill a">En camino</span></td><td>$2.1M</td></tr>
+                  <tr><td>#10417</td><td>56 unid</td><td><span class="pill">Procesando</span></td><td>$4.2M</td></tr>
+                </tbody></table>
+              </div>
+              <div class="row"><span class="btn">+ Nuevo pedido</span><span class="pill v">📄 Descargar estado de cuenta</span></div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">🔐 Portal de clientes / distribuidores</div>
+        <div class="sub">Área privada con login para que sus clientes vean facturas, hagan pedidos, descarguen documentos y consulten su estado de cuenta — sin llamarle a contabilidad.</div>
+        <div class="tags"><span class="tag c">Login</span><span class="tag g">Auto-servicio</span><span class="tag v">Conectado a ERP</span><span class="tag">4-6 sem</span><span class="tag g">$8-15 MM</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ APKs ═══════════ -->
+<section class="cat" id="apks">
+  <div class="inner">
+    <div class="lbl" style="color:var(--violet)">SERVICIO · 02</div>
+    <h2>Apps móviles</h2>
+    <p class="desc">Android e iOS. Operación desde el celular para su equipo, o experiencia para sus clientes finales.</p>
+    <div class="grid phones">
+
+      <!-- A1: Delivery/pedidos -->
+      <a class="example" href="ejemplos/apks/delivery.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="phone"><div class="screen"><div class="notch"></div><div class="mk app">
+          <div class="topbar"><span>9:41</span><span>📶 🔋</span></div>
+          <div class="hdr"><div class="t">¡Hola, Andrés! 👋</div><div class="s">¿Qué pedimos hoy?</div></div>
+          <div class="body">
+            <div style="background:var(--panel2);border-radius:8px;padding:6px 10px;font-size:8px;color:var(--dim)">🔍 Buscar restaurantes…</div>
+            <div class="row" style="overflow:hidden;gap:4px">
+              <span class="pill v" style="font-size:7px;color:#fff;background:#8b6cff">🍕 Pizza</span>
+              <span style="font-size:7px;color:var(--dim);padding:2px 6px">🍔 Burgers</span>
+              <span style="font-size:7px;color:var(--dim);padding:2px 6px">🍣 Sushi</span>
+              <span style="font-size:7px;color:var(--dim);padding:2px 6px">🥗 Saludable</span>
+            </div>
+            <div class="acard"><div class="row" style="gap:8px"><div style="background:linear-gradient(135deg,#fb923c,#f87171);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px">🍕</div>
+              <div style="flex:1"><div style="font-size:10px;font-weight:800">Pizzería Bella</div><div style="font-size:8px;color:var(--dim)">⭐ 4.8 · 25-35 min · $$</div></div></div></div>
+            <div class="acard"><div class="row" style="gap:8px"><div style="background:linear-gradient(135deg,#fbbf24,#fb923c);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px">🍔</div>
+              <div style="flex:1"><div style="font-size:10px;font-weight:800">Burger House</div><div style="font-size:8px;color:var(--dim)">⭐ 4.6 · 20-30 min · $$</div></div></div></div>
+            <div class="acard"><div class="row" style="gap:8px"><div style="background:linear-gradient(135deg,#4ade80,#22d3ee);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px">🥗</div>
+              <div style="flex:1"><div style="font-size:10px;font-weight:800">Verde Vivo</div><div style="font-size:8px;color:var(--dim)">⭐ 4.9 · 15-25 min · $</div></div></div></div>
+          </div>
+          <div class="tabbar"><span class="tab active">🏠 Inicio</span><span class="tab">📋 Mis pedidos</span><span class="tab">👤 Perfil</span></div>
+        </div></div></div>
+        <div class="ttl">🛵 App de delivery / pedidos</div>
+        <div class="sub">Su marca en la tienda de apps. Catálogo, pedido, pago, seguimiento en mapa y notificaciones push.</div>
+        <div class="tags"><span class="tag v">Android+iOS</span><span class="tag g">GPS</span><span class="tag c">Pagos</span><span class="tag">6-10 sem</span><span class="tag g">$12-25 MM</span></div>
+      </a>
+
+      <!-- A2: Control de inventario en bodega -->
+      <a class="example" href="ejemplos/apks/inventario.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="phone"><div class="screen"><div class="notch"></div><div class="mk app">
+          <div class="topbar"><span>9:41</span><span>📶 🔋</span></div>
+          <div class="hdr"><div class="t">Bodega Norte</div><div class="s">Turno mañana · Operador #14</div></div>
+          <div class="body">
+            <div class="acard" style="background:linear-gradient(135deg,rgba(90,242,255,.15),rgba(139,108,255,.1));border-color:var(--cyan);text-align:center">
+              <div style="font-size:8px;color:var(--dim);letter-spacing:1px">ESCANEAR CÓDIGO</div>
+              <div style="font-size:30px;margin:6px 0">📷</div>
+              <div style="font-size:8px;color:var(--cyan);font-weight:700">Toque para escanear</div>
+            </div>
+            <div style="font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;font-weight:700">Últimos movimientos</div>
+            <div class="acard"><div class="row" style="justify-content:space-between"><div><div style="font-size:9px;font-weight:700">SKU 4821 · Tornillo M6</div><div style="font-size:7px;color:var(--dim)">Estante A-12 · 09:34</div></div><span class="pill g" style="font-size:7px">+50</span></div></div>
+            <div class="acard"><div class="row" style="justify-content:space-between"><div><div style="font-size:9px;font-weight:700">SKU 2134 · Cable 12awg</div><div style="font-size:7px;color:var(--dim)">Despacho · 09:22</div></div><span class="pill r" style="font-size:7px;color:#dc2626;background:rgba(248,113,113,.15)">−12</span></div></div>
+            <div class="acard"><div class="row" style="justify-content:space-between"><div><div style="font-size:9px;font-weight:700">SKU 9081 · Llave inglesa</div><div style="font-size:7px;color:var(--dim)">Conteo · 09:05</div></div><span class="pill" style="font-size:7px">CONF</span></div></div>
+          </div>
+          <div class="tabbar"><span class="tab active">📷 Escanear</span><span class="tab">📦 Inventario</span><span class="tab">📊 Reporte</span></div>
+        </div></div></div>
+        <div class="ttl">📦 Control de inventario</div>
+        <div class="sub">Su equipo de bodega registra entradas, salidas y conteos escaneando códigos QR/barras. Sincronizado con su ERP en vivo.</div>
+        <div class="tags"><span class="tag v">QR/Barras</span><span class="tag c">Sin conexión</span><span class="tag g">Sync ERP</span><span class="tag">4-6 sem</span><span class="tag g">$6-12 MM</span></div>
+      </a>
+
+      <!-- A3: Gestión de equipo / personal -->
+      <a class="example" href="ejemplos/apks/equipo.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="phone"><div class="screen"><div class="notch"></div><div class="mk app">
+          <div class="topbar"><span>9:41</span><span>📶 🔋</span></div>
+          <div class="hdr"><div class="t">Mi turno</div><div class="s">Hoy · 06:00 — 14:00</div></div>
+          <div class="body">
+            <div class="acard" style="border-color:var(--green);background:linear-gradient(135deg,rgba(74,222,128,.15),rgba(34,211,238,.08))">
+              <div class="row" style="justify-content:space-between"><div><div style="font-size:8px;color:var(--dim);font-weight:700">ENTRADA REGISTRADA</div><div style="font-size:14px;font-weight:800;color:var(--green);margin-top:2px">05:58 AM ✓</div></div><div style="font-size:24px">🟢</div></div>
+            </div>
+            <div class="acard"><div class="row" style="justify-content:space-between"><span style="font-size:9px;font-weight:700">⏰ Tiempo trabajado</span><span style="font-size:11px;font-weight:800;color:var(--cyan)">3h 42m</span></div></div>
+            <div style="font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;font-weight:700">Tareas asignadas</div>
+            <div class="acard"><div class="row" style="gap:6px"><div style="width:14px;height:14px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;color:var(--bg);font-size:8px">✓</div><div style="flex:1;font-size:9px"><div style="font-weight:700">Apertura caja</div><div style="color:var(--dim);font-size:7px">06:00 — completada</div></div></div></div>
+            <div class="acard"><div class="row" style="gap:6px"><div style="width:14px;height:14px;border-radius:50%;background:var(--amber);display:flex;align-items:center;justify-content:center;color:var(--bg);font-size:8px">⏵</div><div style="flex:1;font-size:9px"><div style="font-weight:700">Recepción mercancía</div><div style="color:var(--dim);font-size:7px">10:00 — en curso</div></div></div></div>
+            <div class="acard"><div class="row" style="gap:6px"><div style="width:14px;height:14px;border-radius:50%;background:var(--line);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:8px">◯</div><div style="flex:1;font-size:9px"><div style="font-weight:700">Cierre y reporte</div><div style="color:var(--dim);font-size:7px">13:30 — pendiente</div></div></div></div>
+          </div>
+          <div class="tabbar"><span class="tab active">📋 Tareas</span><span class="tab">⏱️ Turnos</span><span class="tab">💬 Equipo</span></div>
+        </div></div></div>
+        <div class="ttl">👷 Gestión de equipo</div>
+        <div class="sub">Sus colaboradores fichan entrada/salida con geolocalización, ven sus tareas del día y registran avances desde el celular.</div>
+        <div class="tags"><span class="tag g">GPS check-in</span><span class="tag v">Notificaciones</span><span class="tag c">Reportes</span><span class="tag">3-5 sem</span><span class="tag g">$5-10 MM</span></div>
+      </a>
+
+      <!-- A4: Catálogo B2C -->
+      <a class="example" href="ejemplos/apks/catalogo.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="phone"><div class="screen"><div class="notch"></div><div class="mk app">
+          <div class="topbar"><span>9:41</span><span>📶 🔋</span></div>
+          <div class="hdr"><div class="row" style="justify-content:space-between"><div><div class="t">Tienda</div><div class="s">📍 Cra 14 #85-22</div></div><div style="font-size:14px;position:relative">🛒<span style="position:absolute;top:-4px;right:-6px;background:var(--cyan);color:var(--bg);border-radius:10px;font-size:7px;padding:0 4px;font-weight:800">3</span></div></div></div>
+          <div class="body">
+            <div style="background:linear-gradient(135deg,#fbcfe8,#a78bfa);border-radius:10px;padding:12px;color:#fff">
+              <div style="font-size:7px;letter-spacing:2px;font-weight:700;opacity:.8">PROMO HOY</div>
+              <div style="font-size:14px;font-weight:800;margin-top:2px">2x1 en bebidas</div>
+              <div style="font-size:8px;opacity:.9;margin-top:2px">Solo por hoy hasta 8 pm</div>
+            </div>
+            <div class="row" style="gap:6px"><span class="pill v" style="font-size:7px;color:#fff;background:#8b6cff">Todo</span><span style="font-size:7px;color:var(--dim);padding:2px 6px">🥪 Comida</span><span style="font-size:7px;color:var(--dim);padding:2px 6px">🥤 Bebidas</span><span style="font-size:7px;color:var(--dim);padding:2px 6px">🍰 Dulces</span></div>
+            <div class="grid2" style="gap:6px">
+              <div class="acard" style="padding:6px"><div style="background:linear-gradient(135deg,#fde68a,#fb923c);height:38px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px">🥤</div><div style="font-size:9px;font-weight:700;margin-top:4px">Jugo natural</div><div style="font-size:9px;color:var(--green);font-weight:800">$8.500</div></div>
+              <div class="acard" style="padding:6px"><div style="background:linear-gradient(135deg,#a5f3fc,#5af2ff);height:38px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px">🥪</div><div style="font-size:9px;font-weight:700;margin-top:4px">Sandwich club</div><div style="font-size:9px;color:var(--green);font-weight:800">$12.000</div></div>
+              <div class="acard" style="padding:6px"><div style="background:linear-gradient(135deg,#fbcfe8,#f472b6);height:38px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px">🍰</div><div style="font-size:9px;font-weight:700;margin-top:4px">Cheesecake</div><div style="font-size:9px;color:var(--green);font-weight:800">$9.000</div></div>
+              <div class="acard" style="padding:6px"><div style="background:linear-gradient(135deg,#bbf7d0,#4ade80);height:38px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px">🥗</div><div style="font-size:9px;font-weight:700;margin-top:4px">Ensalada mix</div><div style="font-size:9px;color:var(--green);font-weight:800">$14.500</div></div>
+            </div>
+          </div>
+          <div class="tabbar"><span class="tab active">🏠 Inicio</span><span class="tab">🛒 Carrito</span><span class="tab">📜 Historia</span></div>
+        </div></div></div>
+        <div class="ttl">🛍️ Catálogo B2C</div>
+        <div class="sub">Su tienda física en el celular del cliente. Catálogo, promos, pedido para recoger o domicilio, puntos de fidelización.</div>
+        <div class="tags"><span class="tag c">Pagos in-app</span><span class="tag p">Fidelización</span><span class="tag v">Push promos</span><span class="tag">4-8 sem</span><span class="tag g">$8-18 MM</span></div>
+      </a>
+
+      <!-- A5: Reportes en campo -->
+      <a class="example" href="ejemplos/apks/reportes.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="phone"><div class="screen"><div class="notch"></div><div class="mk app">
+          <div class="topbar"><span>9:41</span><span>📶 🔋</span></div>
+          <div class="hdr"><div class="t">Visita técnica</div><div class="s">Cliente: Ferretería Don Juan</div></div>
+          <div class="body">
+            <div class="acard" style="background:linear-gradient(135deg,rgba(251,191,36,.12),rgba(244,114,182,.08));border-color:var(--amber)">
+              <div style="font-size:7px;color:var(--dim);letter-spacing:1px;font-weight:700">UBICACIÓN</div>
+              <div style="font-size:9px;font-weight:700;margin-top:2px">📍 Cra 38 #12-45, Bogotá</div>
+              <div style="font-size:7px;color:var(--green);margin-top:2px">✓ En sitio · GPS verificado</div>
+            </div>
+            <div style="font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;font-weight:700">Checklist de visita</div>
+            <div class="acard"><div class="row" style="gap:6px;font-size:9px"><div style="width:14px;height:14px;border:1px solid var(--cyan);border-radius:3px;background:var(--cyan);color:var(--bg);font-size:9px;display:flex;align-items:center;justify-content:center">✓</div>Verificar instalación previa</div></div>
+            <div class="acard"><div class="row" style="gap:6px;font-size:9px"><div style="width:14px;height:14px;border:1px solid var(--cyan);border-radius:3px;background:var(--cyan);color:var(--bg);font-size:9px;display:flex;align-items:center;justify-content:center">✓</div>Foto antes</div></div>
+            <div class="acard"><div class="row" style="gap:6px;font-size:9px"><div style="width:14px;height:14px;border:1px solid var(--cyan);border-radius:3px"></div>Foto después</div></div>
+            <div class="acard"><div class="row" style="gap:6px;font-size:9px"><div style="width:14px;height:14px;border:1px solid var(--cyan);border-radius:3px"></div>Firma del cliente</div></div>
+            <div style="background:var(--cyan);color:var(--bg);border-radius:8px;padding:8px;text-align:center;font-weight:800;font-size:10px;margin-top:4px">📷 Tomar foto</div>
+          </div>
+          <div class="tabbar"><span class="tab active">📋 Visita</span><span class="tab">📜 Historial</span><span class="tab">⚙️ Ajustes</span></div>
+        </div></div></div>
+        <div class="ttl">📲 Reportes en campo</div>
+        <div class="sub">Su equipo técnico levanta visitas con foto, firma digital y GPS — el reporte llega armado al backoffice antes de que vuelvan a la oficina.</div>
+        <div class="tags"><span class="tag a">Fotos+firma</span><span class="tag c">GPS</span><span class="tag g">Offline</span><span class="tag">3-5 sem</span><span class="tag g">$5-10 MM</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CRM ═══════════ -->
+<section class="cat" id="crm">
+  <div class="inner">
+    <div class="lbl" style="color:var(--green)">SERVICIO · 03</div>
+    <h2>CRM a medida</h2>
+    <p class="desc">Su pipeline de ventas y servicio al cliente, sin pagar Salesforce. Diseñado para el proceso real de su equipo.</p>
+    <div class="grid">
+
+      <!-- C1: Pipeline kanban -->
+      <a class="example" href="ejemplos/crm/pipeline.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">crm.suempresa.co/pipeline</div></div>
+          <div class="body"><div class="mk" style="display:flex;height:100%">
+            <div class="sidebar"><div class="item">📊</div><div class="item active">🎯</div><div class="item">👥</div><div class="item">📞</div><div class="item">⚙️</div></div>
+            <div class="main">
+              <div class="row" style="justify-content:space-between"><h3>Pipeline · Junio</h3><span class="btn">+ Oportunidad</span></div>
+              <div class="grid4" style="gap:6px;flex:1;align-items:start">
+                <div style="background:#ede9f5;border-radius:6px;padding:6px;font-size:8px"><div style="font-weight:800;color:#6b21a8;margin-bottom:4px">PROSPECTO · 12</div>
+                  <div class="card" style="padding:5px;margin-bottom:4px;font-size:8px"><div style="font-weight:700">Cequin S.A.S.</div><div style="color:#6b5f8a;font-size:7px">Ferretería · $7M</div></div>
+                  <div class="card" style="padding:5px;margin-bottom:4px;font-size:8px"><div style="font-weight:700">Distrib. Norte</div><div style="color:#6b5f8a;font-size:7px">Logística · $5M</div></div>
+                  <div class="card" style="padding:5px;font-size:8px"><div style="font-weight:700">Joyería Luna</div><div style="color:#6b5f8a;font-size:7px">Retail · $3M</div></div>
+                </div>
+                <div style="background:rgba(139,108,255,.12);border-radius:6px;padding:6px;font-size:8px"><div style="font-weight:800;color:#6d4cff;margin-bottom:4px">CONTACTO · 8</div>
+                  <div class="card" style="padding:5px;margin-bottom:4px;font-size:8px"><div style="font-weight:700">Coop Avp</div><div style="color:#6b5f8a;font-size:7px">$6M · 3 días</div></div>
+                  <div class="card" style="padding:5px;font-size:8px"><div style="font-weight:700">Logística Total</div><div style="color:#6b5f8a;font-size:7px">$10M · 1 día</div></div>
+                </div>
+                <div style="background:rgba(251,191,36,.12);border-radius:6px;padding:6px;font-size:8px"><div style="font-weight:800;color:#c2780f;margin-bottom:4px">PROPUESTA · 5</div>
+                  <div class="card" style="padding:5px;margin-bottom:4px;font-size:8px;border-left:2px solid #fbbf24"><div style="font-weight:700">Confecoop</div><div style="color:#6b5f8a;font-size:7px">$12M · hoy</div></div>
+                  <div class="card" style="padding:5px;font-size:8px"><div style="font-weight:700">3 Dental</div><div style="color:#6b5f8a;font-size:7px">$4M</div></div>
+                </div>
+                <div style="background:rgba(74,222,128,.12);border-radius:6px;padding:6px;font-size:8px"><div style="font-weight:800;color:#16a34a;margin-bottom:4px">CERRADO · 3</div>
+                  <div class="card" style="padding:5px;font-size:8px"><div style="font-weight:700">Pibox</div><div style="color:#16a34a;font-size:7px">$8M ✓</div></div>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">🎯 Pipeline visual (Kanban)</div>
+        <div class="sub">Tablero arrastrable con sus oportunidades en cada etapa. Filtros por vendedor, valor, fecha. Vista 360° de la venta de un vistazo.</div>
+        <div class="tags"><span class="tag v">Drag & drop</span><span class="tag c">Filtros</span><span class="tag g">Multi-usuario</span><span class="tag">3-5 sem</span><span class="tag g">$6-10 MM</span></div>
+      </a>
+
+      <!-- C2: Gestor de prospects con scoring (estilo Bytenova) -->
+      <a class="example" href="ejemplos/crm/prospects.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">leads.suempresa.co</div></div>
+          <div class="body"><div class="mk" style="display:flex;height:100%;background:var(--bg)">
+            <div class="sidebar" style="background:#0e1430"><div class="item">📊</div><div class="item active" style="color:#5af2ff">🎯</div><div class="item">💬</div><div class="item">📞</div></div>
+            <div class="main dark" style="background:#070b18">
+              <div class="row" style="justify-content:space-between"><h3 style="color:#5af2ff">LEADS POR SCORE</h3><span class="pill dark">109 totales</span></div>
+              <div class="card dark" style="border-left:3px solid #4ade80;padding:6px"><div class="row" style="justify-content:space-between"><div><div style="font-weight:700;font-size:9px">Dietrich Logistics</div><div style="color:#9099c0;font-size:7px">logistica · Bogotá · 46 reviews ⭐4.8</div><div style="margin-top:3px"><span class="pill r" style="font-size:7px;background:rgba(244,114,182,.15);color:#f472b6">mailto_links</span> <span class="pill r" style="font-size:7px;background:rgba(244,114,182,.15);color:#f472b6">whatsapp_ventas</span></div></div><div style="font-size:18px;font-weight:800;color:#4ade80">38</div></div></div>
+              <div class="card dark" style="border-left:3px solid #4ade80;padding:6px"><div class="row" style="justify-content:space-between"><div><div style="font-weight:700;font-size:9px">ILS Logística</div><div style="color:#9099c0;font-size:7px">logistica · Bogotá · ⭐4.7</div><div style="margin-top:3px"><span class="pill r" style="font-size:7px;background:rgba(244,114,182,.15);color:#f472b6">whatsapp_ventas</span></div></div><div style="font-size:18px;font-weight:800;color:#4ade80">38</div></div></div>
+              <div class="card dark" style="border-left:3px solid #fbbf24;padding:6px"><div class="row" style="justify-content:space-between"><div><div style="font-weight:700;font-size:9px">Coop Avp</div><div style="color:#9099c0;font-size:7px">cooperativa · Bogotá</div></div><div style="font-size:18px;font-weight:800;color:#fbbf24">31</div></div></div>
+              <div class="row"><span class="btn dark" style="background:#0e1430">+ Importar 50</span><span class="pill dark">🔍 Enriquecer</span></div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">🎯 Gestor de prospects + scoring IA</div>
+        <div class="sub">Importa leads de páginas oficiales, los enriquece visitando su web, detecta señales de dolor y los puntúa automáticamente. Usted contacta los calientes primero.</div>
+        <div class="tags"><span class="tag p">Scoring IA</span><span class="tag c">Scraping</span><span class="tag g">Auto-enrich</span><span class="tag">4-6 sem</span><span class="tag g">$10-15 MM</span></div>
+      </a>
+
+      <!-- C3: CRM con WhatsApp -->
+      <a class="example" href="ejemplos/crm/whatsapp.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">crm.suempresa.co/conversaciones</div></div>
+          <div class="body"><div class="mk" style="display:flex;height:100%">
+            <div style="width:35%;background:#fff;border-right:1px solid #ede9f5;display:flex;flex-direction:column">
+              <div style="padding:8px;border-bottom:1px solid #ede9f5;font-weight:800;font-size:10px">💬 Conversaciones <span class="pill r" style="background:#16a34a;color:#fff;margin-left:4px">3</span></div>
+              <div style="padding:6px 8px;border-bottom:1px solid #ede9f5;background:#ede9f5"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:8px">Ana López · COO</span><span style="font-size:7px;color:#9099c0">2 min</span></div><div style="font-size:8px;color:#6b5f8a">¿Tienen disponible el sku 4821?</div></div>
+              <div style="padding:6px 8px;border-bottom:1px solid #ede9f5"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:8px">Juan P. · Cliente</span><span style="font-size:7px;color:#9099c0">15m</span></div><div style="font-size:8px;color:#6b5f8a">Quiero cotizar 30 unidades</div></div>
+              <div style="padding:6px 8px;border-bottom:1px solid #ede9f5"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:8px">María G. · Proveedor</span><span style="font-size:7px;color:#9099c0">1h</span></div><div style="font-size:8px;color:#6b5f8a">Confirmamos entrega para…</div></div>
+              <div style="padding:6px 8px"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:8px">Pedro M.</span><span style="font-size:7px;color:#9099c0">2h</span></div><div style="font-size:8px;color:#6b5f8a">Gracias por la atención 👍</div></div>
+            </div>
+            <div style="flex:1;background:#f7f2ff;display:flex;flex-direction:column">
+              <div style="padding:8px;border-bottom:1px solid #ede9f5;background:#fff;font-size:8px"><span style="font-weight:800">Ana López</span> <span style="color:#9099c0">· +57 314 832 9727</span> <span class="pill g" style="font-size:7px;margin-left:auto;float:right">🟢 en línea</span></div>
+              <div style="flex:1;padding:8px;display:flex;flex-direction:column;gap:6px">
+                <div style="align-self:flex-start;background:#fff;padding:6px 8px;border-radius:8px;font-size:8px;max-width:70%">Hola, ¿tienen el sku 4821?</div>
+                <div style="align-self:flex-end;background:#dcfce7;padding:6px 8px;border-radius:8px;font-size:8px;max-width:70%">Sí Ana, tenemos 230 unidades en bodega. ¿Cuántas necesita?</div>
+                <div style="align-self:flex-start;background:#fff;padding:6px 8px;border-radius:8px;font-size:8px;max-width:70%">50 por favor 🙏</div>
+                <div style="font-size:7px;color:#9099c0;text-align:center;margin-top:auto;font-style:italic">💡 Plantilla sugerida: "Le envío la cotización ya..."</div>
+              </div>
+              <div style="padding:6px;background:#fff;border-top:1px solid #ede9f5;display:flex;gap:4px"><input style="flex:1;border:1px solid #d8d0ec;border-radius:6px;padding:3px 6px;font-size:8px" placeholder="Escribir..." readonly><span class="btn" style="font-size:8px;padding:3px 8px">→</span></div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">💬 CRM con WhatsApp integrado</div>
+        <div class="sub">Todas las conversaciones de su equipo en una sola bandeja. Asignación automática, plantillas con IA, métricas de respuesta. Multi-agente sobre un solo número.</div>
+        <div class="tags"><span class="tag g">WhatsApp Business API</span><span class="tag v">Plantillas IA</span><span class="tag">5-7 sem</span><span class="tag g">$10-18 MM</span></div>
+      </a>
+
+      <!-- C4: CRM con email marketing -->
+      <a class="example" href="ejemplos/crm/email.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">crm.suempresa.co/campanas</div></div>
+          <div class="body"><div class="mk" style="display:flex;height:100%">
+            <div class="sidebar"><div class="item">📊</div><div class="item">👥</div><div class="item active">📧</div><div class="item">⚙️</div></div>
+            <div class="main">
+              <div class="row" style="justify-content:space-between"><h3>Campañas de correo</h3><span class="btn">+ Nueva</span></div>
+              <div class="grid2">
+                <div class="kpi c"><div class="l">Suscriptores</div><div class="v">4,820</div></div>
+                <div class="kpi g"><div class="l">Tasa de apertura</div><div class="v" style="color:#16a34a">42%</div></div>
+              </div>
+              <div class="card"><div class="row" style="justify-content:space-between;margin-bottom:6px"><span style="font-weight:700;font-size:9px">Promo Junio 2026</span><span class="pill g">Enviada</span></div>
+                <div class="row" style="gap:14px;font-size:8px"><span>📬 Enviados <b>4,820</b></span><span>👁️ Abiertos <b>2,024 (42%)</b></span><span>🖱️ Clicks <b>312 (15%)</b></span></div>
+              </div>
+              <div class="card"><div class="row" style="justify-content:space-between;margin-bottom:6px"><span style="font-weight:700;font-size:9px">Newsletter mensual</span><span class="pill a">Programada</span></div>
+                <div style="font-size:8px;color:#6b5f8a">Sale el lunes 26 a las 09:00 — segmento: clientes activos últimos 90 días (2,140)</div>
+              </div>
+              <div class="card"><div class="row" style="justify-content:space-between;margin-bottom:6px"><span style="font-weight:700;font-size:9px">Reactivación clientes inactivos</span><span class="pill">Borrador</span></div>
+                <div class="row" style="gap:4px"><span class="pill v" style="font-size:7px">Automatización</span><span class="pill v" style="font-size:7px">A/B test</span></div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">📧 CRM con email marketing</div>
+        <div class="sub">Campañas segmentadas con tasa de apertura, click y conversión. Editor visual, automatizaciones (bienvenida, abandono carrito, cumpleaños), A/B tests.</div>
+        <div class="tags"><span class="tag c">Segmentos</span><span class="tag a">A/B testing</span><span class="tag v">Automation</span><span class="tag">4-6 sem</span><span class="tag g">$8-14 MM</span></div>
+      </a>
+
+      <!-- C5: Tickets servicio al cliente -->
+      <a class="example" href="ejemplos/crm/tickets.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">soporte.suempresa.co</div></div>
+          <div class="body"><div class="mk" style="display:flex;height:100%">
+            <div class="sidebar"><div class="item active">🎫</div><div class="item">📚</div><div class="item">👥</div><div class="item">📊</div></div>
+            <div class="main">
+              <div class="row" style="justify-content:space-between"><h3>Tickets abiertos · 24</h3><span class="row" style="gap:4px"><span class="pill">Todos</span><span class="pill v" style="color:#fff;background:#8b6cff">Asignados a mí</span><span class="pill r" style="background:rgba(248,113,113,.15);color:#dc2626">Urgentes</span></span></div>
+              <div class="card"><div class="row" style="justify-content:space-between"><div style="flex:1"><div class="row" style="gap:6px"><span class="pill r" style="font-size:7px;background:rgba(248,113,113,.15);color:#dc2626">ALTA</span><span style="font-weight:700;font-size:9px">No puedo iniciar sesión</span></div><div style="font-size:7px;color:#6b5f8a;margin-top:3px">#T-1842 · Ana López · hace 12 min</div></div><span class="pill v">Sara R.</span></div></div>
+              <div class="card"><div class="row" style="justify-content:space-between"><div style="flex:1"><div class="row" style="gap:6px"><span class="pill a" style="font-size:7px">MED</span><span style="font-weight:700;font-size:9px">Cambio de plan a anual</span></div><div style="font-size:7px;color:#6b5f8a;margin-top:3px">#T-1838 · Pedro M. · hace 2h</div></div><span class="pill">Sin asignar</span></div></div>
+              <div class="card"><div class="row" style="justify-content:space-between"><div style="flex:1"><div class="row" style="gap:6px"><span class="pill" style="font-size:7px">BAJA</span><span style="font-weight:700;font-size:9px">Solicitar factura electrónica</span></div><div style="font-size:7px;color:#6b5f8a;margin-top:3px">#T-1836 · María G. · hace 4h</div></div><span class="pill v">Carlos T.</span></div></div>
+              <div class="grid3" style="margin-top:4px">
+                <div class="kpi" style="padding:6px"><div class="l">Hoy resueltos</div><div class="v" style="font-size:12px;color:#16a34a">38</div></div>
+                <div class="kpi" style="padding:6px"><div class="l">SLA cumplido</div><div class="v" style="font-size:12px;color:#5af2ff">94%</div></div>
+                <div class="kpi" style="padding:6px"><div class="l">CSAT</div><div class="v" style="font-size:12px;color:#fbbf24">⭐ 4.6</div></div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">🎫 Servicio al cliente / Tickets</div>
+        <div class="sub">Mesa de ayuda con tickets, asignación, SLA, base de conocimiento y portal del cliente. Métricas de satisfacción (CSAT, NPS) integradas.</div>
+        <div class="tags"><span class="tag r">SLA tracking</span><span class="tag c">Base conocimiento</span><span class="tag g">CSAT/NPS</span><span class="tag">5-7 sem</span><span class="tag g">$10-18 MM</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ AUTOMATIZACIONES ═══════════ -->
+<section class="cat" id="auto">
+  <div class="inner">
+    <div class="lbl" style="color:var(--amber)">SERVICIO · 04</div>
+    <h2>Automatizaciones</h2>
+    <p class="desc">Procesos manuales que se hacen solos. Liberamos horas-hombre y eliminamos errores de copiar-pegar.</p>
+    <div class="grid">
+
+      <!-- Auto 1: Conciliación bancaria -->
+      <a class="example" href="ejemplos/auto/conciliacion.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">auto.suempresa.co/conciliacion</div></div>
+          <div class="body"><div class="mk" style="background:#f8f5ff;height:100%;padding:10px">
+            <div class="row" style="justify-content:space-between"><h3>🔄 Conciliación Bancaria · Junio 2026</h3><span class="btn">Conciliar</span></div>
+            <div class="grid3" style="margin-top:8px">
+              <div class="kpi g"><div class="l">Auto-matcheados</div><div class="v" style="color:#16a34a">438 / 487</div></div>
+              <div class="kpi a"><div class="l">Por revisar</div><div class="v" style="color:#c2780f">38</div></div>
+              <div class="kpi" style="border-left-color:#f87171"><div class="l">No identificados</div><div class="v" style="color:#dc2626">11</div></div>
+            </div>
+            <div class="card" style="margin-top:8px"><div style="font-weight:700;margin-bottom:4px">Extracto banco vs Siigo</div>
+              <table>
+                <thead><tr><th>Fecha</th><th>Banco</th><th>Siigo</th><th>Match</th></tr></thead>
+                <tbody>
+                  <tr><td>15/06</td><td>$2.840.000</td><td>$2.840.000</td><td><span class="pill g">✓ Auto</span></td></tr>
+                  <tr><td>15/06</td><td>$528.000</td><td>$528.000</td><td><span class="pill g">✓ Auto</span></td></tr>
+                  <tr><td>16/06</td><td>$1.200.000</td><td>$1.180.000</td><td><span class="pill a">⚠ Revisar</span></td></tr>
+                  <tr><td>16/06</td><td>$945.000</td><td style="color:#dc2626">—</td><td><span class="pill r">⚠ Sin match</span></td></tr>
+                  <tr><td>17/06</td><td>$3.180.000</td><td>$3.180.000</td><td><span class="pill g">✓ Auto</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">🏦 Conciliación bancaria automática</div>
+        <div class="sub">Lee el extracto del banco, lo cruza contra Siigo / SAP, hace match por valor + fecha + descripción. Lo que queda dudoso, lo manda al contador en una sola pantalla.</div>
+        <div class="tags"><span class="tag a">Match IA</span><span class="tag c">Siigo / SAP</span><span class="tag g">Ahorra 40h/mes</span><span class="tag">2-4 sem</span><span class="tag g">$6-10 MM</span></div>
+      </a>
+
+      <!-- Auto 2: Cotizador -->
+      <a class="example" href="ejemplos/auto/cotizador.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">cotizador.suempresa.co/nueva</div></div>
+          <div class="body"><div class="mk" style="background:#fff;height:100%;padding:10px">
+            <div class="row" style="justify-content:space-between"><h3>🧾 Nueva cotización</h3><span class="row" style="gap:4px"><span class="pill">Borrador</span><span class="btn">📧 Enviar PDF</span></span></div>
+            <div class="row" style="margin-top:6px;gap:6px"><input value="Ferretería Don Juan" style="flex:1;border:1px solid #d8d0ec;border-radius:4px;padding:3px 6px;font-size:8px" readonly><input value="NIT 901.123.456-7" style="flex:1;border:1px solid #d8d0ec;border-radius:4px;padding:3px 6px;font-size:8px" readonly></div>
+            <div class="card" style="margin-top:6px;padding:6px"><div class="row" style="justify-content:space-between;font-size:8px;margin-bottom:4px"><span style="font-weight:700">Items (20)</span><span style="color:#9099c0">⚡ Precios y stock de Siigo en vivo</span></div>
+              <table>
+                <thead><tr><th>SKU</th><th>Producto</th><th>Stock</th><th>Cant</th><th>Precio</th><th>Total</th></tr></thead>
+                <tbody>
+                  <tr><td>4821</td><td>Tornillo M6</td><td style="color:#16a34a">230</td><td>50</td><td>$1.200</td><td>$60.000</td></tr>
+                  <tr><td>2134</td><td>Cable 12awg</td><td style="color:#16a34a">120</td><td>30</td><td>$8.500</td><td>$255.000</td></tr>
+                  <tr><td>9081</td><td>Llave inglesa 10"</td><td style="color:#16a34a">45</td><td>5</td><td>$28.000</td><td>$140.000</td></tr>
+                  <tr><td>5524</td><td>Pintura blanca 1gl</td><td style="color:#c2780f">12 ⚠</td><td>8</td><td>$45.000</td><td>$360.000</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="row" style="justify-content:space-between;background:#ede9f5;padding:6px 8px;border-radius:6px;margin-top:4px"><span style="font-weight:700;font-size:9px">Subtotal · IVA 19% · TOTAL</span><span style="font-weight:800;font-size:11px;color:#6b21a8">$8.450.000 COP</span></div>
+          </div></div>
+        </div>
+        <div class="ttl">🧾 Cotizador con Siigo</div>
+        <div class="sub">El vendedor digita SKU + cantidad, el sistema jala precio y stock en vivo de Siigo, calcula IVA y descuentos, y genera el PDF para enviar — todo en un click.</div>
+        <div class="tags"><span class="tag c">Siigo en vivo</span><span class="tag v">PDF auto</span><span class="tag g">5 min vs 3 h</span><span class="tag">2 sem</span><span class="tag g">$7-10 MM</span></div>
+      </a>
+
+      <!-- Auto 3: Validación OCR -->
+      <a class="example" href="ejemplos/auto/ocr.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">ocr.suempresa.co/cedulas</div></div>
+          <div class="body"><div class="mk" style="background:#f8f5ff;height:100%;padding:10px">
+            <div class="row" style="justify-content:space-between"><h3>📄 Validación de documentos (OCR + IA)</h3><span class="pill g">12 procesados hoy</span></div>
+            <div class="row" style="gap:8px;margin-top:6px">
+              <div style="flex:1;background:#fff;border:1px dashed #d8d0ec;border-radius:6px;padding:14px;text-align:center;font-size:9px;color:#6b5f8a">
+                <div style="font-size:24px;margin-bottom:6px">📤</div>
+                <div style="font-weight:700;color:#1e1333">Arrastra cédula o factura</div>
+                <div style="font-size:7px;margin-top:4px">PNG, JPG, PDF · máx 5 MB</div>
+              </div>
+              <div style="flex:1;background:#fff;border-radius:6px;padding:8px">
+                <div style="font-weight:700;font-size:9px;margin-bottom:4px">Último procesado · ✓ Válido</div>
+                <table style="font-size:8px">
+                  <tr><td style="color:#9099c0">Nombre</td><td style="font-weight:700">ANA SOFÍA LÓPEZ M.</td></tr>
+                  <tr><td style="color:#9099c0">Cédula</td><td style="font-weight:700">1.020.345.789</td></tr>
+                  <tr><td style="color:#9099c0">Expedición</td><td>BOGOTÁ · 14/03/2018</td></tr>
+                  <tr><td style="color:#9099c0">Estado</td><td><span class="pill g" style="font-size:7px">VIGENTE</span></td></tr>
+                </table>
+              </div>
+            </div>
+            <div class="grid3" style="margin-top:6px">
+              <div class="kpi c"><div class="l">Procesados hoy</div><div class="v">128</div></div>
+              <div class="kpi g"><div class="l">Aprobados</div><div class="v" style="color:#16a34a">118</div></div>
+              <div class="kpi" style="border-left-color:#f87171"><div class="l">Rechazados</div><div class="v" style="color:#dc2626">10</div></div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">🪪 Validación de documentos (OCR)</div>
+        <div class="sub">Sube cédulas, facturas o contratos. El sistema lee, extrae, valida contra registraduría/DIAN y clasifica. Lo que parece falso, lo marca para revisión.</div>
+        <div class="tags"><span class="tag v">OCR + IA</span><span class="tag c">API Registraduría</span><span class="tag g">99% precisión</span><span class="tag">3-5 sem</span><span class="tag g">$8-14 MM</span></div>
+      </a>
+
+      <!-- Auto 4: Scraper de competencia -->
+      <a class="example" href="ejemplos/auto/scraper.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">competencia.suempresa.co/precios</div></div>
+          <div class="body"><div class="mk" style="background:#f8f5ff;height:100%;padding:10px">
+            <div class="row" style="justify-content:space-between"><h3>🔍 Monitor de precios competencia</h3><span class="pill v">Actualizado hace 12 min</span></div>
+            <div class="grid4" style="margin-top:8px">
+              <div class="kpi"><div class="l">Productos</div><div class="v">84</div></div>
+              <div class="kpi g"><div class="l">Soy más barato</div><div class="v" style="color:#16a34a">62</div></div>
+              <div class="kpi a"><div class="l">Soy más caro</div><div class="v" style="color:#c2780f">15</div></div>
+              <div class="kpi" style="border-left-color:#f87171"><div class="l">Sin stock comp.</div><div class="v" style="color:#dc2626">7</div></div>
+            </div>
+            <div class="card" style="margin-top:6px">
+              <table>
+                <thead><tr><th>Producto</th><th>Mi precio</th><th>Comp. A</th><th>Comp. B</th><th>Diff</th></tr></thead>
+                <tbody>
+                  <tr><td>Audífonos Pro</td><td>$329.000</td><td>$345.000</td><td>$359.000</td><td><span class="pill g">−5%</span></td></tr>
+                  <tr><td>Reloj smart X2</td><td>$520.000</td><td>$489.000</td><td>$510.000</td><td><span class="pill r">+6%</span></td></tr>
+                  <tr><td>Mochila urbana</td><td>$149.000</td><td>$155.000</td><td>$148.000</td><td><span class="pill a">≈</span></td></tr>
+                  <tr><td>Cámara DSLR</td><td>$1.890.000</td><td>$2.050.000</td><td>$1.950.000</td><td><span class="pill g">−8%</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">🔍 Scraper de competencia</div>
+        <div class="sub">Visita las webs de su competencia cada hora, lee precios y stock, los compara con los suyos. Alertas automáticas cuando bajen precios o cuando ellos se queden sin inventario.</div>
+        <div class="tags"><span class="tag c">Scraping legal</span><span class="tag a">Alertas</span><span class="tag p">Datos históricos</span><span class="tag">3-5 sem</span><span class="tag g">$7-12 MM</span></div>
+      </a>
+
+      <!-- Auto 5: Procesamiento masivo facturas -->
+      <a class="example" href="ejemplos/auto/facturas.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">facturas.suempresa.co/lote</div></div>
+          <div class="body"><div class="mk" style="background:#f8f5ff;height:100%;padding:10px">
+            <div class="row" style="justify-content:space-between"><h3>🧾 Procesador de facturas masivo</h3><span class="btn">📤 Cargar lote</span></div>
+            <div class="card" style="margin-top:6px"><div class="row" style="justify-content:space-between;margin-bottom:6px"><span style="font-weight:700;font-size:9px">Lote #L-2026-06-3 · 248 facturas</span><span class="pill v">Procesando…</span></div>
+              <div class="bar" style="height:8px;margin-bottom:4px"><div class="fill" style="width:68%"></div></div>
+              <div style="font-size:7px;color:#6b5f8a">168 / 248 procesadas · estimado 6 min restantes</div>
+            </div>
+            <div class="grid3" style="margin-top:6px">
+              <div class="kpi g"><div class="l">Validadas OK</div><div class="v" style="color:#16a34a">152</div></div>
+              <div class="kpi a"><div class="l">Por revisar</div><div class="v" style="color:#c2780f">14</div></div>
+              <div class="kpi" style="border-left-color:#f87171"><div class="l">Rechazadas</div><div class="v" style="color:#dc2626">2</div></div>
+            </div>
+            <div class="card" style="margin-top:6px"><div style="font-weight:700;margin-bottom:4px;font-size:9px">Últimas observaciones</div>
+              <div style="font-size:8px;color:#1e1333;padding:2px 0">⚠ #F-104228 · IVA inconsistente — calculado $89.520 vs declarado $95.000</div>
+              <div style="font-size:8px;color:#1e1333;padding:2px 0">⚠ #F-104221 · NIT proveedor no encontrado en lista de proveedores</div>
+              <div style="font-size:8px;color:#dc2626;padding:2px 0">✗ #F-104198 · Duplicada (ya existe #F-104102 mismo monto, fecha y NIT)</div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">📦 Procesamiento masivo de facturas</div>
+        <div class="sub">Sube 200 facturas a la vez. El sistema valida cálculos, NIT, duplicados, y las carga a Siigo en lote. Lo que no cuadra, lo aparta para revisión.</div>
+        <div class="tags"><span class="tag a">Validación auto</span><span class="tag g">Detección duplicados</span><span class="tag c">Carga lote</span><span class="tag">3-4 sem</span><span class="tag g">$7-12 MM</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TABLEROS Y MONITOREOS ═══════════ -->
+<section class="cat" id="tableros">
+  <div class="inner">
+    <div class="lbl" style="color:var(--pink)">SERVICIO · 05</div>
+    <h2>Tableros y monitoreos</h2>
+    <p class="desc">Que el dato deje de vivir en hojas sueltas. Web, no Excel. Tiempo real, no fin de mes.</p>
+    <div class="grid">
+
+      <!-- T1: Dashboard ejecutivo -->
+      <a class="example" href="ejemplos/tableros/ejecutivo.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">board.suempresa.co/ejecutivo</div></div>
+          <div class="body"><div class="mk" style="background:#070b18;height:100%;padding:10px;color:#fff">
+            <div class="row" style="justify-content:space-between"><h3 style="color:#5af2ff">DASHBOARD EJECUTIVO · Junio 2026</h3><span class="pill dark">en vivo</span></div>
+            <div class="grid4" style="margin-top:6px">
+              <div class="kpi dark c"><div class="l">Ingresos</div><div class="v" style="color:#5af2ff">$120 MM</div></div>
+              <div class="kpi dark g"><div class="l">Margen</div><div class="v" style="color:#4ade80">28%</div></div>
+              <div class="kpi dark v"><div class="l">Clientes</div><div class="v" style="color:#8b6cff">487</div></div>
+              <div class="kpi dark a"><div class="l">vs meta</div><div class="v" style="color:#fbbf24">112%</div></div>
+            </div>
+            <div class="grid2" style="margin-top:6px">
+              <div class="card dark"><div style="font-weight:700;margin-bottom:6px;font-size:9px">Ventas mensuales</div>
+                <div class="chart dark" style="height:80px"><div class="bars" style="height:64px">
+                  <div class="b" style="height:40%"></div><div class="b" style="height:55%"></div><div class="b" style="height:65%"></div><div class="b" style="height:50%"></div><div class="b" style="height:75%"></div><div class="b" style="height:90%;background:linear-gradient(180deg,#4ade80,#16a34a)"></div>
+                </div></div>
+                <div class="row" style="justify-content:space-between;font-size:7px;color:#9099c0;margin-top:2px"><span>E</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span></div>
+              </div>
+              <div class="card dark"><div style="font-weight:700;margin-bottom:6px;font-size:9px">Top productos</div>
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <div><div class="row" style="justify-content:space-between;font-size:8px"><span>Producto A</span><span style="color:#5af2ff;font-weight:700">$48M</span></div><div class="bar" style="background:#1f2748"><div class="fill" style="width:90%"></div></div></div>
+                  <div><div class="row" style="justify-content:space-between;font-size:8px"><span>Producto B</span><span style="color:#5af2ff;font-weight:700">$32M</span></div><div class="bar" style="background:#1f2748"><div class="fill" style="width:65%"></div></div></div>
+                  <div><div class="row" style="justify-content:space-between;font-size:8px"><span>Producto C</span><span style="color:#5af2ff;font-weight:700">$24M</span></div><div class="bar" style="background:#1f2748"><div class="fill" style="width:45%"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">📊 Dashboard ejecutivo</div>
+        <div class="sub">KPIs financieros y comerciales en una pantalla. Comparativo con período anterior, contra meta, alertas si baja de umbral. Ideal para junta directiva.</div>
+        <div class="tags"><span class="tag c">KPIs en vivo</span><span class="tag g">vs meta</span><span class="tag v">Exportable</span><span class="tag">2-4 sem</span><span class="tag g">$4-8 MM</span></div>
+      </a>
+
+      <!-- T2: Tablero operativo vivo -->
+      <a class="example" href="ejemplos/tableros/operativo.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">board.suempresa.co/operacion</div></div>
+          <div class="body"><div class="mk" style="background:#070b18;height:100%;padding:10px;color:#fff">
+            <div class="row" style="justify-content:space-between"><h3 style="color:#fbbf24">⚡ OPERACIÓN EN VIVO</h3><span style="font-size:8px;color:#4ade80">🟢 Sistemas OK · 17:42:38</span></div>
+            <div class="grid4" style="margin-top:6px">
+              <div class="kpi dark"><div class="l">Pedidos en bodega</div><div class="v" style="color:#5af2ff">128</div></div>
+              <div class="kpi dark"><div class="l">En ruta</div><div class="v" style="color:#fbbf24">54</div></div>
+              <div class="kpi dark"><div class="l">Entregados hoy</div><div class="v" style="color:#4ade80">342</div></div>
+              <div class="kpi dark"><div class="l">Incidencias</div><div class="v" style="color:#f87171">3</div></div>
+            </div>
+            <div class="card dark" style="margin-top:6px"><div style="font-weight:700;margin-bottom:4px;font-size:9px">🗺️ Rutas activas</div>
+              <div style="background:linear-gradient(135deg,rgba(90,242,255,.08),rgba(139,108,255,.05));border-radius:6px;height:78px;position:relative;border:1px solid #1f2748">
+                <div style="position:absolute;left:25%;top:30%;width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 12px #4ade80"></div>
+                <div style="position:absolute;left:55%;top:55%;width:8px;height:8px;border-radius:50%;background:#fbbf24;box-shadow:0 0 12px #fbbf24"></div>
+                <div style="position:absolute;left:75%;top:25%;width:8px;height:8px;border-radius:50%;background:#5af2ff;box-shadow:0 0 12px #5af2ff"></div>
+                <div style="position:absolute;left:40%;top:70%;width:8px;height:8px;border-radius:50%;background:#f87171;box-shadow:0 0 12px #f87171"></div>
+                <div style="position:absolute;left:15%;top:55%;width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 12px #4ade80"></div>
+                <div style="position:absolute;right:6px;bottom:4px;background:#0e1430;color:#9099c0;padding:2px 6px;border-radius:4px;font-size:7px">54 vehículos · Bogotá</div>
+              </div>
+            </div>
+            <div class="card dark" style="margin-top:6px;font-size:8px">
+              <div style="display:flex;justify-content:space-between;padding:2px 0"><span>🟢 Pedido #P-1842 entregado</span><span style="color:#9099c0">17:42</span></div>
+              <div style="display:flex;justify-content:space-between;padding:2px 0"><span>🟡 #P-1839 demora 12min</span><span style="color:#9099c0">17:41</span></div>
+              <div style="display:flex;justify-content:space-between;padding:2px 0"><span>🟢 #P-1838 entregado</span><span style="color:#9099c0">17:40</span></div>
+              <div style="display:flex;justify-content:space-between;padding:2px 0"><span>🔴 #P-1836 cliente rechaza</span><span style="color:#9099c0">17:39</span></div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">⚡ Tablero operativo en vivo</div>
+        <div class="sub">Lo que pasa AHORA: pedidos, despachos, soporte, incidencias. Mapa con vehículos GPS. Pantalla para colgar en su operación.</div>
+        <div class="tags"><span class="tag a">Tiempo real</span><span class="tag c">GPS mapa</span><span class="tag p">Pantalla grande</span><span class="tag">3-5 sem</span><span class="tag g">$7-12 MM</span></div>
+      </a>
+
+      <!-- T3: Monitor de fraude -->
+      <a class="example" href="ejemplos/tableros/fraude.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">fraude.suempresa.co/alertas</div></div>
+          <div class="body"><div class="mk" style="background:#070b18;height:100%;padding:10px;color:#fff">
+            <div class="row" style="justify-content:space-between"><h3 style="color:#f87171">🛡️ MONITOR DE FRAUDE</h3><span class="pill r" style="background:rgba(248,113,113,.2);color:#f87171">3 críticas</span></div>
+            <div class="grid3" style="margin-top:6px">
+              <div class="kpi dark g"><div class="l">Bloqueadas</div><div class="v" style="color:#4ade80">87</div></div>
+              <div class="kpi dark a"><div class="l">En revisión</div><div class="v" style="color:#fbbf24">12</div></div>
+              <div class="kpi dark" style="border-left-color:#f87171"><div class="l">Ahorro estimado</div><div class="v" style="color:#f87171">$48 MM</div></div>
+            </div>
+            <div class="card dark" style="margin-top:6px;border-color:#f87171"><div class="row" style="gap:8px"><div style="font-size:18px">🚨</div><div style="flex:1"><div style="font-weight:700;font-size:10px;color:#f87171">PATRÓN DETECTADO · Múltiples transacciones desde misma IP</div><div style="font-size:8px;color:#9099c0;margin-top:2px">Usuario u_4291 · 12 intentos en 4 min · cédulas distintas · IP 181.49.xx.xx</div></div></div></div>
+            <div class="card dark" style="border-color:#fbbf24"><div class="row" style="gap:8px"><div style="font-size:14px">⚠️</div><div style="flex:1"><div style="font-weight:700;font-size:9px;color:#fbbf24">Reconocimiento facial: bajo match (72%)</div><div style="font-size:8px;color:#9099c0;margin-top:2px">Cédula 102034XXX vs selfie · revisión humana</div></div></div></div>
+            <div class="card dark"><div class="row" style="gap:8px"><div style="font-size:14px">🟢</div><div style="flex:1"><div style="font-weight:700;font-size:9px">Patrón de red sospechosa cortado</div><div style="font-size:8px;color:#9099c0;margin-top:2px">8 cuentas vinculadas · bloqueo automático</div></div></div></div>
+          </div></div>
+        </div>
+        <div class="ttl">🛡️ Monitor de fraude con IA</div>
+        <div class="sub">Detección de patrones sospechosos (red de cuentas, IP duplicada, montos atípicos), reconocimiento facial vs documento, score de riesgo por transacción.</div>
+        <div class="tags"><span class="tag p">IA + ML</span><span class="tag c">Face match</span><span class="tag a">Score riesgo</span><span class="tag">6-10 sem</span><span class="tag g">$15-25 MM</span></div>
+      </a>
+
+      <!-- T4: Tablero comercial -->
+      <a class="example" href="ejemplos/tableros/comercial.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">board.suempresa.co/ventas</div></div>
+          <div class="body"><div class="mk" style="background:#f8f5ff;height:100%;padding:10px">
+            <div class="row" style="justify-content:space-between"><h3>📈 Equipo comercial · Junio</h3><span class="pill">Vista: mes actual</span></div>
+            <div class="grid3" style="margin-top:6px">
+              <div class="kpi v"><div class="l">Ticket promedio</div><div class="v" style="color:#6d4cff">$4.8M</div></div>
+              <div class="kpi g"><div class="l">Conversión</div><div class="v" style="color:#16a34a">31%</div></div>
+              <div class="kpi a"><div class="l">Ciclo de venta</div><div class="v" style="color:#c2780f">18 días</div></div>
+            </div>
+            <div class="card" style="margin-top:6px"><div style="font-weight:700;margin-bottom:6px;font-size:9px">🏆 Ranking vendedores</div>
+              <table>
+                <thead><tr><th>#</th><th>Vendedor</th><th>Cierres</th><th>Valor</th><th>vs meta</th></tr></thead>
+                <tbody>
+                  <tr><td>🥇</td><td>Sara Ramírez</td><td>14</td><td style="font-weight:700">$28M</td><td><span class="pill g">142%</span></td></tr>
+                  <tr><td>🥈</td><td>Carlos Tovar</td><td>11</td><td style="font-weight:700">$22M</td><td><span class="pill g">110%</span></td></tr>
+                  <tr><td>🥉</td><td>Ana López</td><td>9</td><td style="font-weight:700">$18M</td><td><span class="pill a">90%</span></td></tr>
+                  <tr><td>4</td><td>Pedro Morales</td><td>6</td><td>$12M</td><td><span class="pill r">62%</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card" style="margin-top:6px"><div style="font-weight:700;font-size:9px;margin-bottom:4px">Embudo del mes</div>
+              <div class="row" style="gap:0;align-items:stretch;height:24px">
+                <div style="flex:8;background:#6d4cff;color:#fff;font-size:8px;display:flex;align-items:center;justify-content:center;font-weight:700">112</div>
+                <div style="flex:6;background:#8b5cf6;color:#fff;font-size:8px;display:flex;align-items:center;justify-content:center;font-weight:700">68</div>
+                <div style="flex:4;background:#a78bfa;color:#fff;font-size:8px;display:flex;align-items:center;justify-content:center;font-weight:700">42</div>
+                <div style="flex:2;background:#4ade80;color:#fff;font-size:8px;display:flex;align-items:center;justify-content:center;font-weight:700">14</div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">📈 Tablero comercial</div>
+        <div class="sub">Ranking de vendedores con cierres, valor y % de meta. Embudo del mes. Análisis de cohortes. Para reuniones de junta comercial.</div>
+        <div class="tags"><span class="tag v">Ranking</span><span class="tag g">vs meta</span><span class="tag c">Cohortes</span><span class="tag">2-4 sem</span><span class="tag g">$5-10 MM</span></div>
+      </a>
+
+      <!-- T5: Monitoreo de sistemas -->
+      <a class="example" href="ejemplos/tableros/sistemas.html" target="_blank" rel="noopener"><span class="open-btn">Abrir ↗</span>
+        <div class="browser">
+          <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">obs.suempresa.co/status</div></div>
+          <div class="body"><div class="mk" style="background:#070b18;height:100%;padding:10px;color:#fff">
+            <div class="row" style="justify-content:space-between"><h3 style="color:#5af2ff">🖥️ STATUS · Infraestructura</h3><span class="pill dark">🟢 Operativo</span></div>
+            <div class="grid4" style="margin-top:6px">
+              <div class="kpi dark g"><div class="l">Uptime 30d</div><div class="v" style="color:#4ade80">99.94%</div></div>
+              <div class="kpi dark c"><div class="l">Latencia p95</div><div class="v" style="color:#5af2ff">142ms</div></div>
+              <div class="kpi dark a"><div class="l">Errores 5xx (h)</div><div class="v" style="color:#fbbf24">7</div></div>
+              <div class="kpi dark v"><div class="l">Reqs/min</div><div class="v" style="color:#8b6cff">4.2K</div></div>
+            </div>
+            <div class="card dark" style="margin-top:6px"><div style="font-weight:700;margin-bottom:6px;font-size:9px">📊 Latencia · últimas 6h</div>
+              <div class="chart dark" style="height:60px;padding:4px"><svg viewBox="0 0 100 50" style="width:100%;height:100%">
+                <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5af2ff" stop-opacity=".4"/><stop offset="100%" stop-color="#5af2ff" stop-opacity="0"/></linearGradient></defs>
+                <polyline points="0,40 10,32 20,38 30,30 40,28 50,33 60,22 70,18 80,25 90,15 100,20" class="line" stroke="#5af2ff" stroke-width="1.5" fill="none"/>
+                <polygon points="0,40 10,32 20,38 30,30 40,28 50,33 60,22 70,18 80,25 90,15 100,20 100,50 0,50" fill="url(#g1)"/>
+              </svg></div>
+            </div>
+            <div class="grid2" style="margin-top:6px;gap:6px;font-size:8px">
+              <div class="card dark"><div class="row" style="justify-content:space-between"><span>API · ventas</span><span style="color:#4ade80">🟢 OK</span></div></div>
+              <div class="card dark"><div class="row" style="justify-content:space-between"><span>API · inventario</span><span style="color:#4ade80">🟢 OK</span></div></div>
+              <div class="card dark"><div class="row" style="justify-content:space-between"><span>Worker · emails</span><span style="color:#fbbf24">🟡 Lento</span></div></div>
+              <div class="card dark"><div class="row" style="justify-content:space-between"><span>DB primaria</span><span style="color:#4ade80">🟢 OK</span></div></div>
+            </div>
+          </div></div>
+        </div>
+        <div class="ttl">🖥️ Monitoreo de sistemas</div>
+        <div class="sub">Observabilidad de su infraestructura: uptime, latencia, errores, logs. Alertas al WhatsApp del DevOps cuando algo se sale de umbral. Antes que el cliente.</div>
+        <div class="tags"><span class="tag c">Uptime / SLO</span><span class="tag a">Alertas WA</span><span class="tag v">Logs unificados</span><span class="tag">2-4 sem</span><span class="tag g">$5-10 MM</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-section" id="cta">
+  <h2>¿Vio algo que le sirve?</h2>
+  <div class="lead">Cualquiera de estos ejemplos se puede ajustar a su operación. Empezamos con un diagnóstico de 30 minutos — gratis y sin compromiso.</div>
+  <div class="cta-box">
+    <div class="ttl">AGENDAR DIAGNÓSTICO GRATUITO</div>
+    <div class="url">calendly.com/bytenova38/30min</div>
+    <div class="sub">30 minutos · sin compromiso · gratuito</div>
+    <a href="https://calendly.com/bytenova38/30min" target="_blank">Agendar ahora →</a>
+  </div>
+  <div class="contacts">
+    <div class="contact"><div class="lbl">WhatsApp</div><div class="val">+57 322 406 5731</div></div>
+    <div class="contact"><div class="lbl">Correo</div><div class="val">bytenova38@gmail.com</div></div>
+    <div class="contact"><div class="lbl">Sitio web</div><div class="val">duvanp11.github.io/bytenova</div></div>
+  </div>
+</section>
+
+<footer>
+  <div><span class="bn">BYTENOVA</span> · Duvan Perilla &amp; Sebastián Umbarila · 2026</div>
+  <div style="margin-top:6px;font-size:11px">Showroom de ejemplos. Cada proyecto se cotiza con propuesta de 1 página tras el diagnóstico. Precios en pesos colombianos (COP).</div>
+</footer>
+
+</body>
+</html>

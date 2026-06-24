@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Monitoreo de sistemas — ByteNova</title>
+<link rel="stylesheet" href="../_styles.css">
+</head><body>
+
+<div class="topbar"><div class="inner">
+  <div class="brand">BYTENOVA · SHOWROOM</div>
+  <a class="back" href="../../showroom.html#tableros">← Volver al showroom</a>
+</div></div>
+
+<div class="page-head">
+  <div class="kick" style="color:var(--pink)">SERVICIO 05 · EJEMPLO 5 DE 5</div>
+  <h1>🖥️ Monitoreo de sistemas (observabilidad)</h1>
+  <p class="sub">Observabilidad de su infraestructura: uptime, latencia, errores, logs. Alertas al WhatsApp del DevOps cuando algo se sale de umbral. Antes que el cliente.</p>
+  <div class="tags">
+    <span class="tag">Uptime / SLO</span><span class="tag">Alertas WhatsApp</span>
+    <span class="tag">Logs unificados</span><span class="tag">2-4 sem</span><span class="tag">$5-10 MM COP</span>
+  </div>
+</div>
+
+<div class="demo"><div class="browser">
+  <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">obs.suempresa.co/status</div></div>
+  <div class="body" style="background:#070b18;color:#e8ecff;min-height:720px;padding:28px">
+    <div class="mk" style="display:flex;flex-direction:column;gap:18px">
+      <div class="row" style="justify-content:space-between"><div><h2 class="t light" style="color:#5af2ff">🖥️ STATUS · Infraestructura</h2><div class="sub" style="color:#9099c0">Última verificación hace 12 s · 22 servicios monitoreados</div></div><div class="row"><span style="background:rgba(74,222,128,.18);color:#4ade80;padding:6px 14px;border-radius:999px;font-size:13px;font-weight:800">🟢 Operativo</span></div></div>
+      <div class="grid4">
+        <div class="kpi dark g"><div class="l">Uptime 30d</div><div class="v" style="color:#4ade80">99,94%</div><div class="s">SLO objetivo 99,9%</div></div>
+        <div class="kpi dark c"><div class="l">Latencia p95</div><div class="v" style="color:#5af2ff">142 ms</div><div class="s" style="color:#4ade80">↓ 18ms vs ayer</div></div>
+        <div class="kpi dark a"><div class="l">Errores 5xx (hoy)</div><div class="v" style="color:#fbbf24">7</div><div class="s">en 38.420 reqs</div></div>
+        <div class="kpi dark v"><div class="l">Throughput</div><div class="v" style="color:#8b6cff">4,2K</div><div class="s">reqs/min · pico 9,8K</div></div>
+      </div>
+      <div class="card dark"><b>📊 Latencia · últimas 6 horas</b><div class="chart dark" style="height:140px;margin-top:14px;padding:4px"><svg viewBox="0 0 300 100" style="width:100%;height:100%"><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5af2ff" stop-opacity=".4"/><stop offset="100%" stop-color="#5af2ff" stop-opacity="0"/></linearGradient></defs><polyline points="0,80 15,72 30,78 45,68 60,72 75,60 90,55 105,62 120,48 135,52 150,45 165,55 180,42 195,40 210,52 225,45 240,38 255,42 270,32 285,40 300,35" stroke="#5af2ff" stroke-width="2" fill="none"/><polygon points="0,80 15,72 30,78 45,68 60,72 75,60 90,55 105,62 120,48 135,52 150,45 165,55 180,42 195,40 210,52 225,45 240,38 255,42 270,32 285,40 300,35 300,100 0,100" fill="url(#g1)"/></svg></div><div class="row" style="margin-top:8px;gap:14px;font-size:11px"><span style="color:#5af2ff;font-weight:700">— p95</span><span style="color:#9099c0;font-weight:700">Promedio: 84 ms · Peor: 320 ms</span></div></div>
+      <div class="card dark"><b>🚦 Estado de servicios</b>
+        <div class="grid3" style="margin-top:14px;gap:10px">
+          <div style="padding:12px;background:rgba(74,222,128,.06);border-radius:8px;border-left:3px solid #4ade80"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:13px">API · ventas</span><span style="color:#4ade80;font-size:12px;font-weight:700">🟢 OK</span></div><div style="font-size:11px;color:#9099c0;margin-top:4px">Uptime 99,98% · 142 ms</div></div>
+          <div style="padding:12px;background:rgba(74,222,128,.06);border-radius:8px;border-left:3px solid #4ade80"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:13px">API · inventario</span><span style="color:#4ade80;font-size:12px;font-weight:700">🟢 OK</span></div><div style="font-size:11px;color:#9099c0;margin-top:4px">Uptime 99,99% · 88 ms</div></div>
+          <div style="padding:12px;background:rgba(251,191,36,.06);border-radius:8px;border-left:3px solid #fbbf24"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:13px">Worker · emails</span><span style="color:#fbbf24;font-size:12px;font-weight:700">🟡 Lento</span></div><div style="font-size:11px;color:#9099c0;margin-top:4px">32 jobs en cola · 14s prom</div></div>
+          <div style="padding:12px;background:rgba(74,222,128,.06);border-radius:8px;border-left:3px solid #4ade80"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:13px">DB primaria</span><span style="color:#4ade80;font-size:12px;font-weight:700">🟢 OK</span></div><div style="font-size:11px;color:#9099c0;margin-top:4px">CPU 32% · 240 conns</div></div>
+          <div style="padding:12px;background:rgba(74,222,128,.06);border-radius:8px;border-left:3px solid #4ade80"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:13px">DB réplica</span><span style="color:#4ade80;font-size:12px;font-weight:700">🟢 OK</span></div><div style="font-size:11px;color:#9099c0;margin-top:4px">Lag 0,2 s · CPU 18%</div></div>
+          <div style="padding:12px;background:rgba(74,222,128,.06);border-radius:8px;border-left:3px solid #4ade80"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:13px">Redis cache</span><span style="color:#4ade80;font-size:12px;font-weight:700">🟢 OK</span></div><div style="font-size:11px;color:#9099c0;margin-top:4px">Hit rate 94% · 2.1 GB</div></div>
+          <div style="padding:12px;background:rgba(74,222,128,.06);border-radius:8px;border-left:3px solid #4ade80"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:13px">CDN · estáticos</span><span style="color:#4ade80;font-size:12px;font-weight:700">🟢 OK</span></div><div style="font-size:11px;color:#9099c0;margin-top:4px">98% cache hit</div></div>
+          <div style="padding:12px;background:rgba(248,113,113,.08);border-radius:8px;border-left:3px solid #f87171"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:13px">Backup nocturno</span><span style="color:#f87171;font-size:12px;font-weight:700">🔴 Falló</span></div><div style="font-size:11px;color:#9099c0;margin-top:4px">02:14 · disco origen lleno</div></div>
+          <div style="padding:12px;background:rgba(74,222,128,.06);border-radius:8px;border-left:3px solid #4ade80"><div class="row" style="justify-content:space-between"><span style="font-weight:700;font-size:13px">Pasarela pago</span><span style="color:#4ade80;font-size:12px;font-weight:700">🟢 OK</span></div><div style="font-size:11px;color:#9099c0;margin-top:4px">Wompi · 412 transacc</div></div>
+        </div>
+      </div>
+      <div class="row" style="gap:14px">
+        <div class="card dark" style="flex:1"><b>📜 Logs recientes (errores)</b><div style="margin-top:12px;font-family:monospace;font-size:11px;color:#9099c0;display:flex;flex-direction:column;gap:4px">
+          <div><span style="color:#f87171">[ERROR]</span> 17:38:22 backup_nightly: disk_full /backup/db</div>
+          <div><span style="color:#fbbf24">[WARN]</span> 17:35:08 worker_emails: queue_size 32 (umbral 20)</div>
+          <div><span style="color:#fbbf24">[WARN]</span> 17:32:45 api_ventas: slow_query 1.2s GET /orders</div>
+          <div><span style="color:#f87171">[ERROR]</span> 17:28:11 api_inv: 503 stock_lookup_failed sku=4821</div>
+          <div><span style="color:#fbbf24">[WARN]</span> 17:24:00 db_primary: long_running_query 18s</div>
+        </div></div>
+        <div class="card dark" style="flex:1"><b>📱 Alertas enviadas hoy · 8 al WhatsApp</b><div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+          <div style="padding:8px;background:rgba(248,113,113,.06);border-radius:6px;font-size:11px"><b style="color:#f87171">🔴 17:38</b> Backup falló · enviado a Andrés (DevOps)</div>
+          <div style="padding:8px;background:rgba(251,191,36,.06);border-radius:6px;font-size:11px"><b style="color:#fbbf24">🟡 17:35</b> Worker emails atrasado · Andrés</div>
+          <div style="padding:8px;background:rgba(248,113,113,.06);border-radius:6px;font-size:11px"><b style="color:#f87171">🔴 14:22</b> API inventario 5 min down · Andrés + Sara</div>
+          <div style="padding:8px;background:rgba(251,191,36,.06);border-radius:6px;font-size:11px"><b style="color:#fbbf24">🟡 09:18</b> Latencia p95 sobre umbral 500ms · Andrés</div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<div class="about">
+  <div>
+    <h2>¿Para quién?</h2>
+    <p>Empresas con <b>sistemas críticos en producción</b>: e-commerce, fintech, SaaS, plataformas. Áreas donde 5 minutos de downtime cuesta plata, clientes pierden confianza, ventas se caen.</p>
+    <p>Observabilidad completa: uptime check externo, métricas de aplicación (latencia, throughput, errores), logs unificados, alertas inteligentes. <b>WhatsApp directo al DevOps</b> cuando algo se sale de umbral — antes que el cliente lo note.</p>
+    <p>Dashboard estilo "status page" público opcional (transparency.suempresa.com) para clientes externos.</p>
+  </div>
+  <div class="features">
+    <h3>QUÉ INCLUYE</h3>
+    <ul>
+      <li>Uptime check externo (cada 1 min)</li>
+      <li>Métricas de aplicación (APM)</li>
+      <li>Logs centralizados y buscables</li>
+      <li>Alertas configurables WhatsApp / correo</li>
+      <li>Status page público (opcional)</li>
+      <li>SLO/SLA tracking</li>
+      <li>Histórico 3 meses</li>
+    </ul>
+    <div class="meta-line">
+      <b>Tiempo:</b> 2-4 semanas<br>
+      <b>Inversión:</b> $5-10 MM COP<br>
+      <b>Stack:</b> Prometheus + Grafana + custom UI
+    </div>
+  </div>
+</div>
+
+<div class="cta-block">
+  <h2>¿Sus clientes le avisan que está caído?</h2>
+  <p>Si descubren los incidentes por el chat de WhatsApp del cliente, esto les cambia la vida.</p>
+  <a class="cta" href="https://calendly.com/bytenova38/30min" target="_blank">Agendar diagnóstico →</a>
+  <div class="small">calendly.com/bytenova38/30min · WhatsApp +57 322 406 5731</div>
+</div>
+
+</body></html>

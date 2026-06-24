@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portal de clientes — ByteNova</title>
+<link rel="stylesheet" href="../_styles.css">
+</head><body>
+
+<div class="topbar"><div class="inner">
+  <div class="brand">BYTENOVA · SHOWROOM</div>
+  <a class="back" href="../../showroom.html#websites">← Volver al showroom</a>
+</div></div>
+
+<div class="page-head">
+  <div class="kick" style="color:var(--cyan)">SERVICIO 01 · EJEMPLO 5 DE 5</div>
+  <h1>🔐 Portal de clientes / distribuidores</h1>
+  <p class="sub">Área privada con login para que sus clientes vean facturas, hagan pedidos, descarguen documentos y consulten su estado de cuenta — sin llamarle a contabilidad.</p>
+  <div class="tags">
+    <span class="tag">Login</span><span class="tag">Auto-servicio</span>
+    <span class="tag">Conectado a ERP</span><span class="tag">4-6 sem</span><span class="tag">$8-15 MM COP</span>
+  </div>
+</div>
+
+<div class="view-tabs">
+  <button class="active" data-v="v1">🏠 Mi cuenta</button>
+  <button data-v="v2">📋 Mis pedidos</button>
+  <button data-v="v3">🧾 Facturas</button>
+</div>
+
+<div class="demo">
+  <div class="view active" id="v1"><div class="browser">
+    <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">clientes.suempresa.co/cuenta</div></div>
+    <div class="body" style="display:flex;background:#f8f5ff;min-height:620px"><div class="mk" style="display:contents">
+      <div class="sidebar" style="background:#1e1333"><div class="brand">PORTAL</div>
+        <div class="item active"><span class="ico">🏠</span> Mi cuenta</div>
+        <div class="item"><span class="ico">📋</span> Mis pedidos</div>
+        <div class="item"><span class="ico">📊</span> Estado de cuenta</div>
+        <div class="item"><span class="ico">🧾</span> Facturas</div>
+        <div class="item"><span class="ico">🎫</span> Soporte</div>
+        <div class="item"><span class="ico">⚙️</span> Configuración</div>
+        <div style="margin-top:auto;padding:16px 20px;font-size:11px;color:#9099c0;border-top:1px solid #2d1f4f"><div style="font-weight:700;color:#e8ecff">Distribuidor XYZ</div><div>Cuenta #DT-1284 · Cliente Oro</div></div>
+      </div>
+      <div class="main">
+        <div class="row" style="justify-content:space-between"><div><h2 class="t">Hola, Distribuidor XYZ 👋</h2><div class="sub">Su última visita fue ayer a las 16:42</div></div><div class="row"><span class="pill v">⭐ Cliente Oro</span><span class="pill g">Cupo: $15 MM disponible</span></div></div>
+        <div class="grid3">
+          <div class="kpi v"><div class="l">Pedido pendiente</div><div class="v" style="color:#6b21a8">$ 4,2 MM</div><div class="s">En preparación</div></div>
+          <div class="kpi g"><div class="l">Cupo disponible</div><div class="v" style="color:#16a34a">$ 15 MM</div><div class="s">de $20 MM</div></div>
+          <div class="kpi a"><div class="l">Facturas por pagar</div><div class="v" style="color:#c2780f">3</div><div class="s">$ 8,4 MM en total</div></div>
+        </div>
+        <div class="grid2">
+          <div class="card">
+            <div class="row" style="justify-content:space-between"><b>📦 Últimos pedidos</b><a>Ver todos →</a></div>
+            <table style="margin-top:14px"><thead><tr><th>Nº</th><th>Productos</th><th>Estado</th><th>Total</th></tr></thead><tbody>
+              <tr><td><b>#10428</b></td><td>42 unidades</td><td><span class="pill g">Entregado</span></td><td>$3,8 MM</td></tr>
+              <tr><td><b>#10422</b></td><td>28 unidades</td><td><span class="pill a">En camino</span></td><td>$2,1 MM</td></tr>
+              <tr><td><b>#10417</b></td><td>56 unidades</td><td><span class="pill c">Procesando</span></td><td>$4,2 MM</td></tr>
+              <tr><td><b>#10408</b></td><td>14 unidades</td><td><span class="pill g">Entregado</span></td><td>$1,1 MM</td></tr>
+            </tbody></table>
+          </div>
+          <div class="card">
+            <b>🎯 Acciones rápidas</b>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:14px">
+              <button style="background:linear-gradient(90deg,#5af2ff,#8b6cff);color:#070b18;border:none;padding:12px;border-radius:8px;font-weight:800;cursor:pointer;text-align:left">+ Nuevo pedido</button>
+              <button style="background:#fff;border:1px solid #d8d0ec;padding:12px;border-radius:8px;cursor:pointer;text-align:left;font-weight:700">📄 Descargar estado de cuenta</button>
+              <button style="background:#fff;border:1px solid #d8d0ec;padding:12px;border-radius:8px;cursor:pointer;text-align:left;font-weight:700">💳 Pagar facturas pendientes</button>
+              <button style="background:#fff;border:1px solid #d8d0ec;padding:12px;border-radius:8px;cursor:pointer;text-align:left;font-weight:700">🎫 Abrir ticket de soporte</button>
+              <button style="background:#fff;border:1px solid #d8d0ec;padding:12px;border-radius:8px;cursor:pointer;text-align:left;font-weight:700">📞 Hablar con mi ejecutivo</button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="row" style="justify-content:space-between"><b>📬 Avisos para usted</b><span class="pill v">3 nuevos</span></div>
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+            <div style="padding:12px;background:rgba(74,222,128,.08);border-radius:8px;border-left:3px solid #4ade80"><b style="font-size:13px">🎉 Lista de precios actualizada</b><div style="color:#6b5f8a;font-size:12px;margin-top:4px">Vigente desde el 15 de Junio. Su descuento de Cliente Oro se mantiene en 12%.</div></div>
+            <div style="padding:12px;background:rgba(251,191,36,.08);border-radius:8px;border-left:3px solid #fbbf24"><b style="font-size:13px">⏰ Factura #FV-8421 vence en 5 días</b><div style="color:#6b5f8a;font-size:12px;margin-top:4px">Valor: $2.840.000 · Vence 30 Junio 2026</div></div>
+            <div style="padding:12px;background:rgba(90,242,255,.08);border-radius:8px;border-left:3px solid #5af2ff"><b style="font-size:13px">📢 Nuevo producto disponible</b><div style="color:#6b5f8a;font-size:12px;margin-top:4px">SKU-7821 ya está en bodega. Ver en catálogo.</div></div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div></div>
+
+  <div class="view" id="v2"><div class="browser">
+    <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">clientes.suempresa.co/pedidos</div></div>
+    <div class="body" style="display:flex;background:#f8f5ff;min-height:620px"><div class="mk" style="display:contents">
+      <div class="sidebar" style="background:#1e1333"><div class="brand">PORTAL</div>
+        <div class="item"><span class="ico">🏠</span> Mi cuenta</div>
+        <div class="item active"><span class="ico">📋</span> Mis pedidos</div>
+        <div class="item"><span class="ico">📊</span> Estado de cuenta</div>
+        <div class="item"><span class="ico">🧾</span> Facturas</div>
+        <div class="item"><span class="ico">🎫</span> Soporte</div>
+      </div>
+      <div class="main">
+        <div class="row" style="justify-content:space-between"><h2 class="t">Mis pedidos</h2><div class="row"><span class="pill">Todos</span><span class="pill v">Procesando 4</span><span class="pill a">En camino 2</span><span class="pill g">Entregados</span><span class="btn">+ Nuevo pedido</span></div></div>
+        <div class="card"><table><thead><tr><th>Nº</th><th>Fecha</th><th>Productos</th><th>Estado</th><th>Tracking</th><th>Total</th><th>Acción</th></tr></thead><tbody>
+          <tr><td><b>#10428</b></td><td>12 Jun 2026</td><td>42 unidades<br><span style="color:#9099c0;font-size:11px">12 SKUs distintos</span></td><td><span class="pill g">Entregado ✓</span></td><td><a>Ver guía</a></td><td><b>$ 3,8 MM</b></td><td><a>Repetir pedido</a></td></tr>
+          <tr><td><b>#10422</b></td><td>14 Jun 2026</td><td>28 unidades<br><span style="color:#9099c0;font-size:11px">8 SKUs distintos</span></td><td><span class="pill a">En camino</span></td><td><a>📍 Rastrear</a></td><td><b>$ 2,1 MM</b></td><td><a>Detalle</a></td></tr>
+          <tr><td><b>#10417</b></td><td>16 Jun 2026</td><td>56 unidades<br><span style="color:#9099c0;font-size:11px">18 SKUs distintos</span></td><td><span class="pill c">Procesando</span></td><td>—</td><td><b>$ 4,2 MM</b></td><td><a>Detalle</a></td></tr>
+          <tr><td><b>#10408</b></td><td>05 Jun 2026</td><td>14 unidades</td><td><span class="pill g">Entregado ✓</span></td><td><a>Ver guía</a></td><td><b>$ 1,1 MM</b></td><td><a>Repetir</a></td></tr>
+          <tr><td><b>#10401</b></td><td>02 Jun 2026</td><td>34 unidades</td><td><span class="pill g">Entregado ✓</span></td><td><a>Ver guía</a></td><td><b>$ 2,6 MM</b></td><td><a>Repetir</a></td></tr>
+          <tr><td><b>#10395</b></td><td>30 May 2026</td><td>22 unidades</td><td><span class="pill g">Entregado ✓</span></td><td><a>Ver guía</a></td><td><b>$ 1,8 MM</b></td><td><a>Repetir</a></td></tr>
+          <tr><td><b>#10388</b></td><td>28 May 2026</td><td>18 unidades</td><td><span class="pill g">Entregado ✓</span></td><td><a>Ver guía</a></td><td><b>$ 1,4 MM</b></td><td><a>Repetir</a></td></tr>
+        </tbody></table></div>
+      </div></div>
+    </div>
+  </div></div>
+
+  <div class="view" id="v3"><div class="browser">
+    <div class="bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">clientes.suempresa.co/facturas</div></div>
+    <div class="body" style="display:flex;background:#f8f5ff;min-height:620px"><div class="mk" style="display:contents">
+      <div class="sidebar" style="background:#1e1333"><div class="brand">PORTAL</div>
+        <div class="item"><span class="ico">🏠</span> Mi cuenta</div>
+        <div class="item"><span class="ico">📋</span> Mis pedidos</div>
+        <div class="item"><span class="ico">📊</span> Estado de cuenta</div>
+        <div class="item active"><span class="ico">🧾</span> Facturas</div>
+        <div class="item"><span class="ico">🎫</span> Soporte</div>
+      </div>
+      <div class="main">
+        <div class="row" style="justify-content:space-between"><h2 class="t">Facturas</h2><div class="row"><span class="pill r">3 por pagar · $8.4 MM</span><span class="btn">💳 Pagar pendientes</span></div></div>
+        <div class="grid3">
+          <div class="kpi r"><div class="l">Vencen este mes</div><div class="v" style="color:#dc2626">$ 5,4 MM</div><div class="s">2 facturas</div></div>
+          <div class="kpi a"><div class="l">Próximas a vencer</div><div class="v" style="color:#c2780f">$ 3,0 MM</div><div class="s">1 factura</div></div>
+          <div class="kpi g"><div class="l">Pagadas (mes)</div><div class="v" style="color:#16a34a">$ 12,8 MM</div><div class="s">8 facturas</div></div>
+        </div>
+        <div class="card"><div class="row" style="justify-content:space-between"><b>📑 Mis facturas</b><a>Descargar todo (ZIP)</a></div>
+          <table style="margin-top:14px"><thead><tr><th>Factura</th><th>Pedido</th><th>Fecha</th><th>Vence</th><th>Valor</th><th>Estado</th><th>PDF</th></tr></thead><tbody>
+            <tr style="background:rgba(248,113,113,.06)"><td><b>FV-8421</b></td><td>#10428</td><td>15 Jun</td><td><b style="color:#dc2626">30 Jun (5d)</b></td><td>$ 2.840.000</td><td><span class="pill r">Por pagar</span></td><td><a>⬇️ PDF</a></td></tr>
+            <tr style="background:rgba(248,113,113,.06)"><td><b>FV-8408</b></td><td>#10422</td><td>14 Jun</td><td><b style="color:#dc2626">28 Jun (3d)</b></td><td>$ 2.580.000</td><td><span class="pill r">Por pagar</span></td><td><a>⬇️ PDF</a></td></tr>
+            <tr style="background:rgba(251,191,36,.06)"><td><b>FV-8395</b></td><td>#10417</td><td>16 Jun</td><td>15 Jul</td><td>$ 3.020.000</td><td><span class="pill a">Próxima</span></td><td><a>⬇️ PDF</a></td></tr>
+            <tr><td><b>FV-8328</b></td><td>#10408</td><td>05 Jun</td><td>20 Jun</td><td>$ 1.100.000</td><td><span class="pill g">Pagada ✓</span></td><td><a>⬇️ PDF</a></td></tr>
+            <tr><td><b>FV-8315</b></td><td>#10401</td><td>02 Jun</td><td>17 Jun</td><td>$ 2.640.000</td><td><span class="pill g">Pagada ✓</span></td><td><a>⬇️ PDF</a></td></tr>
+            <tr><td><b>FV-8301</b></td><td>#10395</td><td>30 May</td><td>14 Jun</td><td>$ 1.820.000</td><td><span class="pill g">Pagada ✓</span></td><td><a>⬇️ PDF</a></td></tr>
+            <tr><td><b>FV-8290</b></td><td>#10388</td><td>28 May</td><td>12 Jun</td><td>$ 1.400.000</td><td><span class="pill g">Pagada ✓</span></td><td><a>⬇️ PDF</a></td></tr>
+          </tbody></table>
+        </div>
+      </div></div>
+    </div>
+  </div></div>
+</div>
+
+<div class="about">
+  <div>
+    <h2>¿Para qué tipo de operación?</h2>
+    <p>Empresas con <b>red de distribuidores o clientes recurrentes</b> donde sus clientes les llaman constantemente a contabilidad preguntando "¿en qué va mi pedido?", "¿cuánto debo?", "¿me mandan la factura otra vez?".</p>
+    <p>El portal les da auto-servicio: ven sus pedidos, descargan facturas, pagan con un click, abren tickets. La carga sobre contabilidad y servicio al cliente cae 60-80%.</p>
+    <p>Conectado a su ERP (Siigo, World Office, SAP). Todo en vivo, no esperan a fin de mes.</p>
+  </div>
+  <div class="features">
+    <h3>QUÉ INCLUYE</h3>
+    <ul>
+      <li>Login multi-usuario por cliente</li>
+      <li>Dashboard con KPIs personales</li>
+      <li>Catálogo + carrito + pedidos</li>
+      <li>Estado de cuenta + facturas PDF</li>
+      <li>Pagos con pasarela (PSE, Wompi)</li>
+      <li>Tickets de soporte</li>
+      <li>Conexión con su ERP en vivo</li>
+    </ul>
+    <div class="meta-line">
+      <b>Tiempo:</b> 4-6 semanas<br>
+      <b>Inversión:</b> $8-15 MM COP<br>
+      <b>Stack:</b> React + FastAPI + sync ERP
+    </div>
+  </div>
+</div>
+
+<div class="cta-block">
+  <h2>¿Sus clientes llaman para todo?</h2>
+  <p>Si su contabilidad pasa la mitad del día respondiendo "¿en qué va mi pedido?", esto se paga solo.</p>
+  <a class="cta" href="https://calendly.com/bytenova38/30min" target="_blank">Agendar diagnóstico →</a>
+  <div class="small">calendly.com/bytenova38/30min · WhatsApp +57 322 406 5731</div>
+</div>
+
+<script>
+document.querySelectorAll('.view-tabs button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('.view-tabs button').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');document.getElementById(b.dataset.v).classList.add('active');
+  };
+});
+</script>
+</body></html>
